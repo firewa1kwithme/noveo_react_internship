@@ -1,0 +1,51 @@
+@import '~assets/scss/variables';
+
+.grid {
+    display: flex;
+
+    max-width: 1000px;
+    margin: 0 auto;
+
+    flex-flow: column;
+
+    .addButton {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+
+        width: 60px;
+        height: 60px;
+
+        cursor: pointer;
+        transition: background-color 0.3s;
+        text-align: center;
+
+        border-radius: 50%;
+        background-color: $primary;
+        box-shadow: 2px 2px 4px 0 rgba(50, 50, 50, 0.5);
+
+        &:after {
+            content: '+';
+
+            font-size: 40px;
+            font-weight: lighter;
+            line-height: 60px;
+
+            position: relative;
+            bottom: 4px;
+
+            vertical-align: middle;
+
+            color: white;
+        }
+
+        &:hover {
+            background-color: darken($primary, 10);
+        }
+    }
+
+    .pagination {
+        align-self: center;
+        margin: 40px 0 40px 0;
+    }
+}

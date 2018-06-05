@@ -1,0 +1,10 @@
+.cardWrapper {
+    display: flex;
+
+    width: 50%;
+    padding: 10px;
+
+    .cardInner {
+        flex: 1 1 auto;
+    }
+}

@@ -1,0 +1,48 @@
+.loginContainer {
+    display: flex;
+    flex-direction: column;
+
+    width: 100vw;
+    height: 100vh;
+
+    align-items: center;
+    justify-content: center;
+
+    .formContainer {
+        width: 300px;
+
+        .formTitle {
+            font-size: 30px;
+
+            margin-bottom: 20px;
+
+            span {
+                font-size: 16px;
+
+                padding-bottom: 2px;
+
+                vertical-align: middle;
+            }
+        }
+
+        .formLink {
+            margin-top: 10px;
+
+            cursor: pointer;
+            text-align: right;
+            text-decoration: underline;
+        }
+
+        .formBody {
+            padding: 30px;
+
+            border-radius: 4px;
+            background-color: white;
+            box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.5);
+
+            hr {
+                margin: 30px 0 30px 0;
+            }
+        }
+    }
+}
