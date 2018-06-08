@@ -1,4 +1,5 @@
 import request from 'helpers/request';
+import {fetchUserResponseMapper} from './mapper';
 
 /**
  * @typedef {Object} UserCredentials
@@ -21,5 +22,10 @@ export default {
      */
     register(credentials) {
         return request.post('/register', credentials);
+    },
+
+    fetchUser() {
+        return request.get('/user')
+            .then(response => fetchUserResponseMapper(response.data));
     }
 };

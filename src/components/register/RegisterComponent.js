@@ -2,65 +2,27 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Button from 'reactstrap/lib/Button';
 import Form from 'reactstrap/lib/Form';
-import Alert from 'reactstrap/lib/Alert';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 import AuthWrapperComponent from 'components/auth-wrapper/AuthWrapperComponent';
+import AuthFormComponent from 'components/auth-form/AuthFormComponent';
 import locale from 'locale.js';
 
-class RegisterComponent extends Component {
+class RegisterComponent extends AuthFormComponent {
     constructor(props) {
-        super(props);
-
-        this.state = {
-            errorMessage: null,
-            isFormSubmitted: false,
-            form: {
-                username: '',
-                password: '',
-                repeatPassword: ''
-            }
+        const defaultFormState = {
+            username: '',
+            password: '',
+            repeatPassword: ''
         };
+
+        super(props, defaultFormState);
     }
 
     static propTypes = {
         register: PropTypes.func.isRequired,
         error: PropTypes.object
-    };
-
-    static getDerivedStateFromProps(props, state) {
-        return {
-            ...state,
-            errorMessage: locale.errors[props.errorCode]
-        };
-    }
-
-    /**
-     * Handle field value change
-     * Note: you must handle nested state properly
-     *
-     * @param {Event} e
-     * @param {Object} e.target
-     * @param {string} e.target.name
-     * @param {string} e.target.value
-     *
-     * @return {undefined|*}
-     * @private
-     */
-    _handleFieldChange = (e) => {
-        const {name, value} = e.target;
-
-        return this.setState((prevState) => {
-            return {
-                errorMessage: null,
-                isFormSubmitted: false,
-                form: {
-                    ...prevState.form,
-                    [name]: value.trim()
-                }
-            };
-        });
     };
 
     /**
@@ -85,7 +47,8 @@ class RegisterComponent extends Component {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessage: locale.errors.EMPTY_FIELDS
+                    errorMessages: [locale.errors.EMPTY_FIELDS],
+                    isLocalError: true
                 });
             }
         }
@@ -93,7 +56,8 @@ class RegisterComponent extends Component {
         if (form.password !== form.repeatPassword) {
             return this.setState({
                 isFormSubmitted: true,
-                errorMessage: locale.errors.REPEAT_PASSWORD_ERROR
+                errorMessages: [locale.errors.REPEAT_PASSWORD_ERROR],
+                isLocalError: true
             });
         }
 
@@ -105,18 +69,9 @@ class RegisterComponent extends Component {
                 password: form.password
             });
         });
-
-        return;
     };
 
     render() {
-        const showAlertMessage = this.state.isFormSubmitted && this.state.errorMessage;
-        const alertMessage = showAlertMessage
-            ? <Alert color='danger'>
-                {this.state.errorMessage}
-            </Alert>
-            : null;
-
         return (
             <AuthWrapperComponent
                 title={'Project Blog <span>(Register)</span>'}
@@ -132,7 +87,7 @@ class RegisterComponent extends Component {
                             id='username'
                             placeholder='super-user-777'
                             value={this.state.username}
-                            onChange={this._handleFieldChange}
+                            onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -143,7 +98,7 @@ class RegisterComponent extends Component {
                             id='password'
                             placeholder='••••••••'
                             value={this.state.password}
-                            onChange={this._handleFieldChange}
+                            onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     <FormGroup>
@@ -154,10 +109,10 @@ class RegisterComponent extends Component {
                             id='repeatPassword'
                             placeholder='••••••••'
                             value={this.state.repeatPassword}
-                            onChange={this._handleFieldChange}
+                            onChange={this.handleFieldChange}
                         />
                     </FormGroup>
-                    {alertMessage}
+                    {this.renderErrorMessages()}
                     <hr/>
                     <Button color='primary' block>Register</Button>
                 </Form>

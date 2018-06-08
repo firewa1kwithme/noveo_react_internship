@@ -77,7 +77,7 @@ function setJWTLocalStorage(response) {
     switch (true) {
         case new RegExp(`/${TOKEN_ENDPOINTS.REGISTER}$`).test(response.config.url):
         case new RegExp(`/${TOKEN_ENDPOINTS.LOGIN}$`).test(response.config.url):
-            const token = response.data.token;
+            const token = response.data.data.token;
 
             if (token) {
                 window.localStorage.setItem(AUTH_TOKEN_KEY, token);

@@ -7,5 +7,9 @@ export default {
     REGISTER_SUCCESS: '@@auth/REGISTER_SUCCESS',
     REGISTER_ERROR: '@@auth/REGISTER_ERROR',
 
-    LOGOUT: '@@auth/LOGOUT',
+    FETCH_USER_REQUEST: '@@auth/FETCH_USER_REQUEST',
+    FETCH_USER_SUCCESS: '@@auth/FETCH_USER_SUCCESS',
+    FETCH_USER_ERROR: '@@auth/FETCH_USER_ERROR',
+
+    LOGOUT: '@@auth/LOGOUT'
 };

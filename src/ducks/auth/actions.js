@@ -8,11 +8,13 @@ import types from './types';
 
 export default {
     /**
+     * @param {UserCredentials} credentials
      * @return {Object}
      */
-    loginRequest() {
+    loginRequest(credentials) {
         return {
-            type: types.LOGIN_REQUEST
+            type: types.LOGIN_REQUEST,
+            credentials
         };
     },
 
@@ -22,7 +24,7 @@ export default {
      */
     loginSuccess(user) {
         return {
-            type: types.REGISTER_SUCCESS,
+            type: types.LOGIN_SUCCESS,
             user: {
                 id: user.id,
                 username: user.username
@@ -53,7 +55,6 @@ export default {
     },
 
     /**
-     *
      * @param {UserObject} user
      * @return {Object}
      */
@@ -84,6 +85,42 @@ export default {
     logout() {
         return {
             type: types.LOGOUT
+        };
+    },
+
+    /**
+     * @return {Object}
+     */
+    fetchUserRequest() {
+        return {
+            type: types.FETCH_USER_REQUEST
+        };
+    },
+
+    /**
+     * @param {UserObject | Object} user
+     * @param {boolean} [isAuthenticated]
+     * @return {Object}
+     */
+    fetchUserSuccess(user, isAuthenticated = true) {
+        return {
+            type: types.FETCH_USER_SUCCESS,
+            user: {
+                id: user.id,
+                username: user.username
+            },
+            isAuthenticated
+        };
+    },
+
+    /**
+     * @param {Object} error
+     * @return {Object}
+     */
+    fetchUserError(error) {
+        return {
+            type: types.FETCH_USER_ERROR,
+            error
         };
     }
 };

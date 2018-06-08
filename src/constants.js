@@ -1,0 +1,2 @@
+export const TOKEN_INVALID_ERROR = 'TOKEN_INVALID';
+
