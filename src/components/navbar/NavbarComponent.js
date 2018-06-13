@@ -19,7 +19,7 @@ function NavbarComponent({user, logout}) {
             <Nav navbar>
                 <Fragment>
                     <NavItem className={styles.userName}>
-                        {user.name}
+                        {user.username}
                     </NavItem>
                     <NavItem>
                         <Button outline color='white' size='sm' onClick={logout}>Logout</Button>
@@ -29,7 +29,6 @@ function NavbarComponent({user, logout}) {
         </Navbar>
     );
 }
-
 
 NavbarComponent.propTypes = {
     user: PropTypes.object.isRequired,

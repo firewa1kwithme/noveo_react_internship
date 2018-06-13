@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import Masonry from 'react-masonry-component';
 import Route from 'react-router-dom/Route';
 import Link from 'react-router-dom/Link';
+import Button from 'reactstrap/lib/Button';
 import CardComponent from 'components/card/CardComponent';
 import styles from './GridComponent.scss';
 import EditArticleFormComponent from 'components/edit-article-form/EditArticleFormComponent';
-import PaginationComponent from 'components/pagination/PaginationComponent';
 
 /* eslint-disable */
 const data = [{
@@ -95,9 +95,9 @@ function GridComponent(props) {
                     })
                 }
             </Masonry>
-            <div className={styles.pagination}>
-                <PaginationComponent/>
-            </div>
+            <Button className={styles.showMoreButton}>
+                Show more
+            </Button>
             <Link to={`${props.match.url}/new`}>
                 <div className={styles.addButton}/>
             </Link>
