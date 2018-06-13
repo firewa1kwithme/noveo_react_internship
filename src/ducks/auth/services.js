@@ -1,5 +1,4 @@
 import request from 'helpers/request';
-import {fetchUserResponseMapper} from './mapper';
 
 /**
  * @typedef {Object} UserCredentials
@@ -25,7 +24,6 @@ export default {
     },
 
     fetchUser() {
-        return request.get('/user')
-            .then(response => fetchUserResponseMapper(response.data));
+        return request.get('/user');
     }
 };

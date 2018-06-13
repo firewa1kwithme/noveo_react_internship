@@ -49,10 +49,7 @@ function requestMapper(config) {
  * @return {Promise.<Object>}
  */
 function responseMapper(response) {
-    return Promise.resolve({
-        data: humps.camelizeKeys(response.data),
-        headers: humps.camelizeKeys(response.headers)
-    });
+    return Promise.resolve(humps.camelizeKeys(response.data.data));
 }
 
 /**

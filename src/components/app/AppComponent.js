@@ -1,5 +1,5 @@
 import {hot} from 'react-hot-loader';
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
 import {ConnectedRouter} from 'react-router-redux';
@@ -21,13 +21,8 @@ function AppComponent(props) {
         );
     }
 
-    const redirectToLogin = function () {
-        return <Redirect to='/login'/>;
-    };
-
-    const redirectToFeed = function () {
-        return <Redirect to='/feed'/>;
-    };
+    const redirectToLogin = () => <Redirect to='/login'/>;
+    const redirectToFeed = () => <Redirect to='/feed'/>;
 
     return (
         <Provider store={props.store}>

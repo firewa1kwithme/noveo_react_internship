@@ -25,10 +25,7 @@ export default {
     loginSuccess(user) {
         return {
             type: types.LOGIN_SUCCESS,
-            user: {
-                id: user.id,
-                username: user.username
-            }
+            user
         };
     },
 
@@ -61,10 +58,7 @@ export default {
     registerSuccess(user) {
         return {
             type: types.REGISTER_SUCCESS,
-            user: {
-                id: user.id,
-                username: user.username
-            }
+            user
         };
     },
 
@@ -98,18 +92,13 @@ export default {
     },
 
     /**
-     * @param {UserObject | Object} user
-     * @param {boolean} [isAuthenticated]
+     * @param {UserObject} user
      * @return {Object}
      */
-    fetchUserSuccess(user, isAuthenticated = true) {
+    fetchUserSuccess(user) {
         return {
             type: types.FETCH_USER_SUCCESS,
-            user: {
-                id: user.id,
-                username: user.username
-            },
-            isAuthenticated
+            user
         };
     },
 

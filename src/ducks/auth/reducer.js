@@ -3,7 +3,6 @@ import types from './types';
 const initialState = {
     error: null,
     isAuthenticated: false,
-    isInitialised: false,
     user: {}
 };
 
@@ -18,29 +17,16 @@ export default function (state = initialState, action) {
 
         case types.LOGIN_SUCCESS:
         case types.REGISTER_SUCCESS:
+        case types.FETCH_USER_SUCCESS:
             return {
                 ...state,
                 user: action.user,
                 isAuthenticated: true
             };
 
-        case types.FETCH_USER_SUCCESS:
-            return {
-                ...state,
-                user: action.user,
-                isInitialised: true,
-                isAuthenticated: action.isAuthenticated
-            };
-
-        case types.FETCH_USER_ERROR:
-            return {
-                ...state,
-                isInitialised: true,
-                error: action.error
-            };
-
         case types.LOGIN_ERROR:
         case types.REGISTER_ERROR:
+        case types.FETCH_USER_ERROR:
             return {
                 ...state,
                 error: action.error

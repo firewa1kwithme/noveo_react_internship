@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'reactstrap/lib/Button';
 import Form from 'reactstrap/lib/Form';
@@ -34,8 +34,6 @@ class RegisterComponent extends AuthFormComponent {
      *
      * @param {Event} e
      * @return {undefined}
-     *
-     * @return {undefined|*}
      * @private
      */
     _handleSubmit = (e) => {
@@ -47,7 +45,7 @@ class RegisterComponent extends AuthFormComponent {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessages: [locale.errors.EMPTY_FIELDS],
+                    errorMessage: locale.errors.EMPTY_FIELDS,
                     isLocalError: true
                 });
             }
@@ -56,7 +54,7 @@ class RegisterComponent extends AuthFormComponent {
         if (form.password !== form.repeatPassword) {
             return this.setState({
                 isFormSubmitted: true,
-                errorMessages: [locale.errors.REPEAT_PASSWORD_ERROR],
+                errorMessage: locale.errors.REPEAT_PASSWORD_ERROR,
                 isLocalError: true
             });
         }

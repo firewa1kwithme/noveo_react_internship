@@ -2,6 +2,15 @@ import types from './types';
 
 export default {
     /**
+     * @return {Object}
+     */
+    initApp() {
+        return {
+            type: types.INIT_APP
+        };
+    },
+
+    /**
      * @param {UserCredentials} credentials
      * @return {Object}
      */

@@ -8,7 +8,7 @@
         "start:prod": "NODE_ENV=production webpack --progress",
         "analyze:bundle": "NODE_ENV=production webpack --progress --profile --json > stats.json && mv stats.json public/ && webpack-bundle-analyzer --exclude /assets/ -s gzip public/stats.json",
         "analyze:eslint": "./node_modules/.bin/eslint *.js src/**/*.js",
-        "env": "cp .env.default .env"
+        "env": "cp .env.defaults .env"
     },
     "devDependencies": {
         "autoprefixer": "^8.5.1",

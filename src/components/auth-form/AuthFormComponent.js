@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 import Alert from 'reactstrap/lib/Alert';
 import locale from 'locale.js';
 
@@ -7,7 +7,7 @@ export default class AuthFormComponent extends Component {
         super(props);
 
         this.state = {
-            errorMessages: [],
+            errorMessage: null,
             isFormSubmitted: false,
             isLocalError: false,
             form: defaultFormState
@@ -15,7 +15,6 @@ export default class AuthFormComponent extends Component {
     }
 
     static getDerivedStateFromProps(props, state) {
-        // local error was set, don't rewrite it by error from props i it exists
         if (state.isLocalError) {
             return {
                 ...state,
@@ -23,52 +22,25 @@ export default class AuthFormComponent extends Component {
             };
         }
 
-        if (props.errorCode) {
-            return {
-                ...state,
-                errorMessages: AuthFormComponent.getErrorMessagesByCodes(props.errorCode)
-            };
-        }
-
-        return null;
-    }
-
-    /**
-     * Generate errors output for errors got from server
-     * @param {Object} errorCodes
-     * @returns {Array}
-     */
-    static getErrorMessagesByCodes(error) {
-        switch (true) {
-            case typeof error === 'string':
-                return [locale.errors[error]];
-            case typeof error === 'object':
-                return Object.keys(error).map(field => {
-                    const errorCode = error[field][0];
-                    const fieldUpperCase = field.toUpperCase();
-
-                    return locale.errors[`${fieldUpperCase}_${errorCode}`];
-                });
-        }
+        return {
+            ...state,
+            errorMessage: locale.errors[props.errorCode] || null
+        };
     }
 
     /**
      * Renders current errors
      *
-     * @returns {boolean|XML}
+     * @returns {null|ReactElement}
      */
     renderErrorMessages = () => {
-        const showAlertMessage = this.state.isFormSubmitted && this.state.errorMessages.length > 0;
-        return showAlertMessage && (
+        const showAlertMessage = this.state.isFormSubmitted && this.state.errorMessage;
+
+        return showAlertMessage ? (
             <Alert color='danger'>
-                {this.state.errorMessages.map((errorMessage, index) => {
-                    return (
-                        <Fragment key={index}>
-                            {errorMessage} <br/>
-                        </Fragment>
-                    );
-                })}
-            </Alert>);
+                {this.state.errorMessage}
+            </Alert>
+        ) : null;
     };
 
     /**
@@ -87,7 +59,7 @@ export default class AuthFormComponent extends Component {
 
         return this.setState((prevState) => {
             return {
-                errorMessages: [],
+                errorMessage: null,
                 isLocalError: true,
                 isFormSubmitted: false,
                 form: {

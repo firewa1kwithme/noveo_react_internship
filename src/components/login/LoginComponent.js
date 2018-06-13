@@ -33,7 +33,7 @@ class LoginComponent extends AuthFormComponent {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessages: [locale.errors.EMPTY_FIELDS],
+                    errorMessage: locale.errors.EMPTY_FIELDS,
                     isLocalError: true
                 });
             }
@@ -56,11 +56,11 @@ class LoginComponent extends AuthFormComponent {
                 linkText='I have to register!'
                 linkTo='/register'
             >
-                <Form onSubmit={this._handleSubmit}>
+                <Form onSubmit={this._handleSubmit} noValidate>
                     <FormGroup>
                         <Label for='email'>Email</Label>
                         <Input
-                            type='email'
+                            type='text'
                             name='username'
                             id='username'
                             placeholder='user@example.com'

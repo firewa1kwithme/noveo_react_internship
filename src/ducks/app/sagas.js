@@ -1,7 +1,7 @@
-import {all, call, takeLatest} from 'redux-saga/effects';
+import {all, call, takeLatest, put} from 'redux-saga/effects';
 import {registerSaga, loginSaga, fetchUserSaga, logoutSaga} from 'ducks/auth/sagas';
-import {changeRouteSaga} from 'ducks/router/sagas';
 import types from './types';
+import actions from './actions';
 
 /**
  *
@@ -10,13 +10,7 @@ import types from './types';
  * @returns {IterableIterator<*>}
  */
 function* registerUserSaga(action) {
-    const {error} = yield call(registerSaga, action.credentials);
-
-    if (error) {
-        return;
-    }
-
-    //yield call(changeRouteSaga, '/');
+    yield call(registerSaga, action.credentials);
 }
 
 /**
@@ -26,11 +20,7 @@ function* registerUserSaga(action) {
  * @returns {IterableIterator<*>}
  */
 function* loginUserSaga(action) {
-    const {error} = yield call(loginSaga, action.credentials);
-
-    if (error) {
-        return;
-    }
+    yield call(loginSaga, action.credentials);
 }
 
 /**
@@ -40,8 +30,12 @@ function* logoutUserSaga() {
     yield call(logoutSaga);
 }
 
+/**
+ * @returns {IterableIterator<*>}
+ */
 function* initAppSaga() {
     yield call(fetchUserSaga);
+    yield put(actions.initApp());
 }
 
 export default function* () {
