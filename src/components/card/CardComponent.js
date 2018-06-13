@@ -7,6 +7,7 @@ import CardSubtitle from 'reactstrap/lib/CardSubtitle';
 import CardText from 'reactstrap/lib/CardText';
 import CardLink from 'reactstrap/lib/CardLink';
 import Link from 'react-router-dom/Link';
+import moment from 'moment';
 import styles from './CardComponent.scss';
 
 function CardComponent(props) {
@@ -15,15 +16,15 @@ function CardComponent(props) {
             <Card className={styles.cardInner}>
                 <CardBody>
                     <CardTitle>{props.title}</CardTitle>
-                    <CardSubtitle>{`${props.author}, ${props.creationDate}`}</CardSubtitle>
+                    <CardSubtitle>{`${props.user.username}, ${moment(props.createdAt).fromNow()}`}</CardSubtitle>
                 </CardBody>
                 <img
                     width='100%'
-                    src={props.image}
+                    src={props.imageUrl}
                     alt='Card image cap'
                 />
                 <CardBody>
-                    <CardText>{props.body}</CardText>
+                    <CardText dangerouslySetInnerHTML={{__html: props.content}}/>
                     <CardLink tag={Link} to={`/article/${props.id}`}>Show more</CardLink>
                 </CardBody>
             </Card>
@@ -34,10 +35,12 @@ function CardComponent(props) {
 CardComponent.propTypes = {
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    creationDate: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    body: PropTypes.string.isRequired
+    createdAt: PropTypes.string.isRequired,
+    user: PropTypes.shape({
+        username: PropTypes.string.isRequired
+    }).isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    content: PropTypes.string.isRequired
 };
 
 export default CardComponent;

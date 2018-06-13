@@ -8,9 +8,9 @@ import Redirect from 'react-router-dom/Redirect';
 import Switch from 'react-router-dom/Switch';
 import LoginContainer from 'containers/LoginContainer';
 import RegisterContainer from 'containers/RegisterContainer';
+import FeedContainer from 'containers/FeedContainer';
 import LayoutComponent from 'components/layout/LayoutComponent';
 import AuthLayoutComponent from 'components/auth-layout/AuthLayoutComponent';
-import GridComponent from 'components/grid/GridComponent';
 import ArticleComponent from 'components/article/ArticleComponent';
 import LoaderComponent from 'components/loader/LoaderComponent';
 
@@ -41,7 +41,7 @@ function AppComponent(props) {
                     />
                     <LayoutComponent
                         path='/feed'
-                        component={GridComponent}
+                        component={FeedContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
                     <LayoutComponent

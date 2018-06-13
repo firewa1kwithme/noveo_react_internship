@@ -23,6 +23,9 @@ export default {
         return request.post('/register', credentials);
     },
 
+    /**
+     * @return {Promise.<Object>}
+     */
     fetchUser() {
         return request.get('/user');
     }

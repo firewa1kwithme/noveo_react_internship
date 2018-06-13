@@ -5,7 +5,7 @@ import {AUTH_TOKEN_KEY} from 'config.js';
 
 /**
  * @param {UserCredentials} credentials
- * @returns {IterableIterator<*>}
+ * @return {IterableIterator<*>}
  */
 export function* registerSaga(credentials) {
     try {
@@ -22,7 +22,7 @@ export function* registerSaga(credentials) {
 
 /**
  * @param {UserCredentials} credentials
- * @returns {IterableIterator<*>}
+ * @return {IterableIterator<*>}
  */
 export function* loginSaga(credentials) {
     try {
@@ -38,7 +38,7 @@ export function* loginSaga(credentials) {
 }
 
 /**
- * @returns {IterableIterator<*>}
+ * @return {IterableIterator<*>}
  */
 export function* fetchUserSaga() {
     try {
@@ -54,7 +54,7 @@ export function* fetchUserSaga() {
 }
 
 /**
- * @returns {IterableIterator<*>}
+ * @return {IterableIterator<*>}
  */
 export function* logoutSaga() {
     yield put(actions.logout());

@@ -31,7 +31,7 @@ export default class AuthFormComponent extends Component {
     /**
      * Renders current errors
      *
-     * @returns {null|ReactElement}
+     * @return {null|ReactElement}
      */
     renderErrorMessages = () => {
         const showAlertMessage = this.state.isFormSubmitted && this.state.errorMessage;

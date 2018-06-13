@@ -39,5 +39,18 @@ export default {
         return {
             type: types.LOGOUT_USER
         };
+    },
+
+    /**
+     * @param {number} limit
+     * @param {number} offset
+     * @return {Object}
+     */
+    fetchArticles(limit, offset) {
+        return {
+            type: types.FETCH_ARTICLES,
+            limit,
+            offset
+        };
     }
 };
