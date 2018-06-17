@@ -1,29 +1,41 @@
-import React, {Component, Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'reactstrap/lib/Button';
 import Form from 'reactstrap/lib/Form';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
-import AuthWrapperComponent from 'components/auth-wrapper/AuthWrapperComponent';
-import AuthFormComponent from 'components/auth-form/AuthFormComponent';
+import AuthWrapperComponent from 'components/auth/auth-wrapper/AuthWrapperComponent';
+import AuthFormComponent from 'components/auth/AuthFormComponent';
 import locale from 'locale.js';
 
-class LoginComponent extends AuthFormComponent {
+class RegisterComponent extends AuthFormComponent {
     constructor(props) {
         const defaultFormState = {
             username: '',
-            password: ''
+            password: '',
+            repeatPassword: ''
         };
 
         super(props, defaultFormState);
     }
 
     static propTypes = {
-        login: PropTypes.func.isRequired,
+        register: PropTypes.func.isRequired,
         error: PropTypes.object
     };
 
+    /**
+     * Handle form submit
+     * Current _handleSubmit method implementation
+     * Is not really production ready,
+     * You must use form libraries or self written libraries
+     * In order to handle submit action
+     *
+     * @param {Event} e
+     * @return {undefined}
+     * @private
+     */
     _handleSubmit = (e) => {
         e.preventDefault();
 
@@ -39,10 +51,18 @@ class LoginComponent extends AuthFormComponent {
             }
         }
 
+        if (form.password !== form.repeatPassword) {
+            return this.setState({
+                isFormSubmitted: true,
+                errorMessage: locale.errors.REPEAT_PASSWORD_ERROR,
+                isLocalError: true
+            });
+        }
+
         return this.setState({
             isFormSubmitted: true
         }, () => {
-            return this.props.login({
+            return this.props.register({
                 username: form.username,
                 password: form.password
             });
@@ -52,18 +72,18 @@ class LoginComponent extends AuthFormComponent {
     render() {
         return (
             <AuthWrapperComponent
-                title={'Project Blog <span>(Login)</span>'}
-                linkText='I have to register!'
-                linkTo='/register'
+                title={'Project Blog <span>(Register)</span>'}
+                linkText='I already have an account!'
+                linkTo='/login'
             >
-                <Form onSubmit={this._handleSubmit} noValidate>
+                <Form noValidate onSubmit={this._handleSubmit}>
                     <FormGroup>
-                        <Label for='email'>Email</Label>
+                        <Label for='username'>Username</Label>
                         <Input
                             type='text'
                             name='username'
                             id='username'
-                            placeholder='user@example.com'
+                            placeholder='super-user-777'
                             value={this.state.username}
                             onChange={this.handleFieldChange}
                         />
@@ -79,13 +99,24 @@ class LoginComponent extends AuthFormComponent {
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
+                    <FormGroup>
+                        <Label for='repeatPassword'>Repeat password</Label>
+                        <Input
+                            type='password'
+                            name='repeatPassword'
+                            id='repeatPassword'
+                            placeholder='••••••••'
+                            value={this.state.repeatPassword}
+                            onChange={this.handleFieldChange}
+                        />
+                    </FormGroup>
                     {this.renderErrorMessages()}
                     <hr/>
-                    <Button color='primary' block>Log in</Button>
+                    <Button color='primary' block>Register</Button>
                 </Form>
             </AuthWrapperComponent>
         );
     }
 }
 
-export default LoginComponent;
+export default RegisterComponent;

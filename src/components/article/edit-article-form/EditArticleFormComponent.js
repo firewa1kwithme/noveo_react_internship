@@ -20,7 +20,8 @@ class EditArticleFormComponent extends Component {
     }
 
     static propTypes = {
-        history: PropTypes.object.isRequired
+        history: PropTypes.object.isRequired,
+        createNewArticle: PropTypes.func.isRequired
     };
 
     _handleCancelClick = () => {
@@ -59,7 +60,7 @@ class EditArticleFormComponent extends Component {
                     </Form>
                 </ModalBody>
                 <ModalFooter>
-                    <Button color='primary'>Do Something</Button>
+                    <Button color='primary'>Create</Button>
                     <Button onClick={this._handleCancelClick} color='secondary'>Cancel</Button>
                 </ModalFooter>
             </Modal>

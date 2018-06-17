@@ -1,7 +1,7 @@
 import {call, put} from 'redux-saga/effects';
+import {AUTH_TOKEN_KEY} from 'config.js';
 import actions from './actions';
 import services from './services';
-import {AUTH_TOKEN_KEY} from 'config.js';
 
 /**
  * @param {UserCredentials} credentials
@@ -42,6 +42,7 @@ export function* loginSaga(credentials) {
  */
 export function* fetchUserSaga() {
     try {
+
         yield put(actions.fetchUserRequest());
 
         const {user} = yield call(services.fetchUser);

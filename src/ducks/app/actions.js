@@ -52,5 +52,27 @@ export default {
             limit,
             offset
         };
+    },
+
+    /**
+     * @param {number|string} id
+     * @return {Object}
+     */
+    fetchArticle(id) {
+        return {
+            type: types.FETCH_ARTICLE,
+            id
+        };
+    },
+
+    /**
+     * @param {Object} payload
+     * @returns {Object}
+     */
+    createNewArticle(payload) {
+        return {
+            type: types.CREATE_NEW_ARTICLE,
+            payload
+        };
     }
 };

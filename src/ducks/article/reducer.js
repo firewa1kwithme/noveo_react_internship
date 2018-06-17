@@ -20,7 +20,9 @@ export default function (state = initialState, action) {
                 ...state,
                 ...action.articles.reduce((result, item) => {
                     return {
-                        articlesIds: [...result.articlesIds, item.id],
+                        articlesIds: result.articlesIds.includes(item.id)
+                            ? result.articlesIds
+                            : [...result.articlesIds, item.id],
                         articlesById: {
                             ...result.articlesById,
                             [item.id]: item
@@ -33,7 +35,28 @@ export default function (state = initialState, action) {
                 pagination: action.pagination
             };
 
+        case types.FETCH_SINGLE_ARTICLE_SUCCESS:
+            return {
+                ...state,
+                articlesById: {
+                    ...state.articlesById,
+                    [action.article.id]: action.article
+                }
+            };
+
+        case types.CREATE_ARTICLE_SUCCESS:
+            return {
+                ...state,
+                articlesById: {
+                    ...state.articlesById,
+                    [action.article.id]: action.article
+                },
+                articlesIds: [action.article.id, ...state.articlesIds]
+            };
+
         case types.FETCH_ARTICLES_ERROR:
+        case types.FETCH_SINGLE_ARTICLE_ERROR:
+        case types.CREATE_ARTICLE_ERROR:
             return {
                 ...state,
                 error: action.error

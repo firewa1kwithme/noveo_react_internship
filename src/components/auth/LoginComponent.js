@@ -5,37 +5,25 @@ import Form from 'reactstrap/lib/Form';
 import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
-import AuthWrapperComponent from 'components/auth-wrapper/AuthWrapperComponent';
-import AuthFormComponent from 'components/auth-form/AuthFormComponent';
+import AuthWrapperComponent from 'components/auth/auth-wrapper/AuthWrapperComponent';
+import AuthFormComponent from 'components/auth/AuthFormComponent';
 import locale from 'locale.js';
 
-class RegisterComponent extends AuthFormComponent {
+class LoginComponent extends AuthFormComponent {
     constructor(props) {
         const defaultFormState = {
             username: '',
-            password: '',
-            repeatPassword: ''
+            password: ''
         };
 
         super(props, defaultFormState);
     }
 
     static propTypes = {
-        register: PropTypes.func.isRequired,
+        login: PropTypes.func.isRequired,
         error: PropTypes.object
     };
 
-    /**
-     * Handle form submit
-     * Current _handleSubmit method implementation
-     * Is not really production ready,
-     * You must use form libraries or self written libraries
-     * In order to handle submit action
-     *
-     * @param {Event} e
-     * @return {undefined}
-     * @private
-     */
     _handleSubmit = (e) => {
         e.preventDefault();
 
@@ -51,18 +39,10 @@ class RegisterComponent extends AuthFormComponent {
             }
         }
 
-        if (form.password !== form.repeatPassword) {
-            return this.setState({
-                isFormSubmitted: true,
-                errorMessage: locale.errors.REPEAT_PASSWORD_ERROR,
-                isLocalError: true
-            });
-        }
-
         return this.setState({
             isFormSubmitted: true
         }, () => {
-            return this.props.register({
+            return this.props.login({
                 username: form.username,
                 password: form.password
             });
@@ -72,18 +52,18 @@ class RegisterComponent extends AuthFormComponent {
     render() {
         return (
             <AuthWrapperComponent
-                title={'Project Blog <span>(Register)</span>'}
-                linkText='I already have an account!'
-                linkTo='/login'
+                title={'Project Blog <span>(Login)</span>'}
+                linkText='I have to register!'
+                linkTo='/register'
             >
-                <Form noValidate onSubmit={this._handleSubmit}>
+                <Form onSubmit={this._handleSubmit} noValidate>
                     <FormGroup>
-                        <Label for='username'>Username</Label>
+                        <Label for='email'>Email</Label>
                         <Input
                             type='text'
                             name='username'
                             id='username'
-                            placeholder='super-user-777'
+                            placeholder='user@example.com'
                             value={this.state.username}
                             onChange={this.handleFieldChange}
                         />
@@ -99,24 +79,13 @@ class RegisterComponent extends AuthFormComponent {
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
-                    <FormGroup>
-                        <Label for='repeatPassword'>Repeat password</Label>
-                        <Input
-                            type='password'
-                            name='repeatPassword'
-                            id='repeatPassword'
-                            placeholder='••••••••'
-                            value={this.state.repeatPassword}
-                            onChange={this.handleFieldChange}
-                        />
-                    </FormGroup>
                     {this.renderErrorMessages()}
                     <hr/>
-                    <Button color='primary' block>Register</Button>
+                    <Button color='primary' block>Log in</Button>
                 </Form>
             </AuthWrapperComponent>
         );
     }
 }
 
-export default RegisterComponent;
+export default LoginComponent;

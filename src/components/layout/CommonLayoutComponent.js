@@ -4,7 +4,7 @@ import Redirect from 'react-router-dom/Redirect';
 import Route from 'react-router-dom/Route';
 import NavbarContainer from 'containers/NavbarContainer';
 
-function LayoutComponent({component: Component, isAuthenticated, ...restProps}) {
+function CommonLayoutComponent({component: Component, isAuthenticated, ...restProps}) {
     if (!isAuthenticated) {
         return <Redirect to='/login'/>;
     }
@@ -21,15 +21,15 @@ function LayoutComponent({component: Component, isAuthenticated, ...restProps}) 
     );
 }
 
-LayoutComponent.defaultProps = {
+CommonLayoutComponent.defaultProps = {
     exact: false
 };
 
-LayoutComponent.propTypes = {
+CommonLayoutComponent.propTypes = {
     component: PropTypes.func.isRequired,
     exact: PropTypes.bool,
     path: PropTypes.string.isRequired,
     isAuthenticated: PropTypes.bool.isRequired
 };
 
-export default LayoutComponent;
+export default CommonLayoutComponent;

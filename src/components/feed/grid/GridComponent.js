@@ -5,9 +5,9 @@ import Route from 'react-router-dom/Route';
 import withRouter from 'react-router-dom/withRouter';
 import Link from 'react-router-dom/Link';
 import Button from 'reactstrap/lib/Button';
-import CardComponent from 'components/card/CardComponent';
+import CardComponent from 'components/feed/card/CardComponent';
 import styles from './GridComponent.scss';
-import EditArticleFormComponent from 'components/edit-article-form/EditArticleFormComponent';
+import NewArticleContainer from 'containers/NewArticleContainer';
 
 function GridComponent(props) {
     return (
@@ -15,7 +15,6 @@ function GridComponent(props) {
             <Masonry>
                 {
                     props.articles.map(item => {
-                        console.log(item);
                         return (
                             <CardComponent {...item} key={item.id}/>
                         );
@@ -28,7 +27,7 @@ function GridComponent(props) {
             <Link to={`${props.match.url}/new`}>
                 <div className={styles.addButton}/>
             </Link>
-            <Route path={`${props.match.url}/new`} component={EditArticleFormComponent}/>
+            <Route path={`${props.match.url}/new`} component={NewArticleContainer}/>
         </div>
     );
 }

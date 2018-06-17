@@ -9,10 +9,10 @@ import Switch from 'react-router-dom/Switch';
 import LoginContainer from 'containers/LoginContainer';
 import RegisterContainer from 'containers/RegisterContainer';
 import FeedContainer from 'containers/FeedContainer';
-import LayoutComponent from 'components/layout/LayoutComponent';
-import AuthLayoutComponent from 'components/auth-layout/AuthLayoutComponent';
-import ArticleComponent from 'components/article/ArticleComponent';
-import LoaderComponent from 'components/loader/LoaderComponent';
+import ArticleContainer from 'containers/ArticleContainer';
+import CommonLayoutComponent from 'components/layout/CommonLayoutComponent';
+import AuthLayoutComponent from 'components/layout/AuthLayoutComponent';
+import LoaderComponent from 'components/common/loader/LoaderComponent';
 
 function AppComponent(props) {
     if (!props.isInitialised) {
@@ -39,14 +39,14 @@ function AppComponent(props) {
                         component={RegisterContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
-                    <LayoutComponent
+                    <CommonLayoutComponent
                         path='/feed'
                         component={FeedContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
-                    <LayoutComponent
+                    <CommonLayoutComponent
                         path='/article/:id'
-                        component={ArticleComponent}
+                        component={ArticleContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
                 </Switch>

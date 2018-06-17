@@ -3,7 +3,7 @@ export default {
      * The most efficient way is to use reselect library
      *
      * @param {Object} state
-     * @returns {Array.<Object>}
+     * @return {Array.<Object>}
      */
     selectArticles(state) {
         const articlesIds = state.article.articlesIds;
@@ -18,7 +18,7 @@ export default {
 
     /**
      * @param {Object} state
-     * @returns {Object}
+     * @return {Object}
      */
     selectPagination(state) {
         return state.article.pagination;
@@ -26,11 +26,28 @@ export default {
 
     /**
      * @param {Object} state
-     * @returns {boolean}
+     * @return {boolean}
      */
     selectHasMorePagesStatus(state) {
         const pagination = state.article.pagination;
 
-        return pagination.limit + pagination.offset < pagination.rowCount;
+        return (pagination.limit + pagination.offset) < pagination.rowCount;
+    },
+
+    /**
+     * @param {Object} state
+     * @return {boolean}
+     */
+    selectHasArticlesStatus(state) {
+        return !!state.article.articlesIds.length;
+    },
+
+    /**
+     * @param {Object} state
+     * @param {number|string} id
+     * @return {Object}
+     */
+    selectArticle(state, id) {
+        return state.article.articlesById[id];
     }
 };
