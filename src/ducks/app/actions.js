@@ -67,7 +67,7 @@ export default {
 
     /**
      * @param {Object} payload
-     * @returns {Object}
+     * @return {Object}
      */
     createNewArticle(payload) {
         return {

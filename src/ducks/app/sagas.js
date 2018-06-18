@@ -1,6 +1,7 @@
 import {all, call, takeLatest, put} from 'redux-saga/effects';
 import {registerSaga, loginSaga, fetchUserSaga, logoutSaga} from 'ducks/auth/sagas';
 import {fetchArticlesSaga, fetchSingleArticleSaga, createArticleSaga} from 'ducks/article/sagas';
+import {changeRouteSaga} from 'ducks/router/sagas';
 import types from './types';
 import actions from './actions';
 
@@ -57,7 +58,11 @@ function* fetchArticleSaga(action) {
  * @return {IterableIterator<*>}
  */
 function* createNewArticleSaga(action) {
-    yield call(createArticleSaga, action.payload);
+    const {error} = yield call(createArticleSaga, action.payload);
+
+    if (!error) {
+        yield call(changeRouteSaga, '/feed');
+    }
 }
 
 /**
