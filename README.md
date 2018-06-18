@@ -59,7 +59,7 @@ _Preferences/Settings -> Editor -> Inspections -> HTML -> Empty Tag_
 _Open Intellij Idea / WebStorm IDE -> Preferences -> External Tools -> Add:_
 
 - Name: CSSComb
-- Program: `/Users/dmitrijcudinov/Desktop/monalbumphoto/node_modules/csscomb/bin/csscomb`
+- Program: `/path/to/node_modules/csscomb/bin/csscomb`
 - Parameters: `$FilePath$`
 - Working directory: `path/to/your/project`
 
