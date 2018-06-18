@@ -62,6 +62,9 @@ export default function (state = initialState, action) {
                 error: action.error
             };
 
+        case types.FLUSH_STATE:
+            return initialState;
+
         default:
             return state;
     }

@@ -94,5 +94,14 @@ export default {
             type: types.CREATE_ARTICLE_ERROR,
             error
         };
+    },
+
+    /**
+     * @returns {Object}
+     */
+    flushState() {
+        return {
+            type: types.FLUSH_STATE
+        };
     }
 };

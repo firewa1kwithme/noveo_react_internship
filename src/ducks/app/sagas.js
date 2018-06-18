@@ -1,6 +1,7 @@
 import {all, call, takeLatest, put} from 'redux-saga/effects';
 import {registerSaga, loginSaga, fetchUserSaga, logoutSaga} from 'ducks/auth/sagas';
 import {fetchArticlesSaga, fetchSingleArticleSaga, createArticleSaga} from 'ducks/article/sagas';
+import articleActions from 'ducks/article/actions';
 import {changeRouteSaga} from 'ducks/router/sagas';
 import types from './types';
 import actions from './actions';
@@ -30,6 +31,7 @@ function* loginUserSaga(action) {
  */
 function* logoutUserSaga() {
     yield call(logoutSaga);
+    yield put(articleActions.flushState());
 }
 
 /**
