@@ -24,7 +24,7 @@ export default class AuthFormComponent extends Component {
 
         return {
             ...state,
-            errorMessage: locale.errors[props.errorCode] || null
+            errorMessage: locale.ERRORS[props.errorCode] || null
         };
     }
 

@@ -29,7 +29,10 @@ function CardComponent(props) {
                 />
                 <CardBody>
                     <CardText>
-                        {props.content.substring(0, CardComponent.MAX_CONTENT_LENGTH)}{locale.CARD.ELLIPSES}
+                        <span>{props.content.substring(0, CardComponent.MAX_CONTENT_LENGTH)}</span>
+                        <span>
+                            {props.content.length > CardComponent.MAX_CONTENT_LENGTH ? locale.CARD.ELLIPSES : null}
+                        </span>
                     </CardText>
                     <CardLink tag={Link} to={Routes.ARTICLE.replace(/:id/, props.id)}>
                         {locale.CARD.SHOW_ARTICLE_BUTTON}

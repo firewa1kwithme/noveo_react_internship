@@ -31,7 +31,7 @@ export default {
         LOGIN_SUBMIT_BUTTON: 'Log in',
         REGISTER_SUBMIT_BUTTON: 'Register',
         GO_TO_REGISTER: 'I have to register!',
-        GO_TO_LOGIN: '\'I already have an account!\''
+        GO_TO_LOGIN: 'I already have an account!'
     },
     NAVBAR: {
         APP_TITLE: 'Project Blog',

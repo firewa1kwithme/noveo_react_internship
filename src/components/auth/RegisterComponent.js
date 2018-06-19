@@ -46,7 +46,7 @@ class RegisterComponent extends AuthFormComponent {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessage: locale.ERRORSEMPTY_FIELDS,
+                    errorMessage: locale.ERRORS.EMPTY_FIELDS,
                     isLocalError: true
                 });
             }
@@ -55,7 +55,7 @@ class RegisterComponent extends AuthFormComponent {
         if (form.password !== form.repeatPassword) {
             return this.setState({
                 isFormSubmitted: true,
-                errorMessage: locale.ERRORSREPEAT_PASSWORD_ERROR,
+                errorMessage: locale.ERRORS.REPEAT_PASSWORD_ERROR,
                 isLocalError: true
             });
         }
@@ -95,7 +95,7 @@ class RegisterComponent extends AuthFormComponent {
                             type='password'
                             name='password'
                             id='password'
-                            placeholder={locale.AUTH.USERNAME_PLACEHOLDER}
+                            placeholder={locale.AUTH.PASSWORD_PLACEHOLDER}
                             value={this.state.password}
                             onChange={this.handleFieldChange}
                         />

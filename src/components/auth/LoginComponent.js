@@ -34,7 +34,7 @@ class LoginComponent extends AuthFormComponent {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessage: locale.ERRORSEMPTY_FIELDS,
+                    errorMessage: locale.ERRORS.EMPTY_FIELDS,
                     isLocalError: true
                 });
             }

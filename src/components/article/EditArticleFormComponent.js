@@ -62,7 +62,7 @@ class EditArticleFormComponent extends Component {
         for (let key in form) {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
-                    errorMessage: locale.ERRORSEMPTY_FIELDS
+                    errorMessage: locale.ERRORS.EMPTY_FIELDS
                 });
             }
         }
