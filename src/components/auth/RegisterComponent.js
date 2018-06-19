@@ -8,6 +8,7 @@ import Input from 'reactstrap/lib/Input';
 import AuthWrapperComponent from 'components/auth/auth-wrapper/AuthWrapperComponent';
 import AuthFormComponent from 'components/auth/AuthFormComponent';
 import locale from 'locale.js';
+import {Routes} from 'constants.js';
 
 class RegisterComponent extends AuthFormComponent {
     constructor(props) {
@@ -45,7 +46,7 @@ class RegisterComponent extends AuthFormComponent {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessage: locale.errors.EMPTY_FIELDS,
+                    errorMessage: locale.ERRORSEMPTY_FIELDS,
                     isLocalError: true
                 });
             }
@@ -54,7 +55,7 @@ class RegisterComponent extends AuthFormComponent {
         if (form.password !== form.repeatPassword) {
             return this.setState({
                 isFormSubmitted: true,
-                errorMessage: locale.errors.REPEAT_PASSWORD_ERROR,
+                errorMessage: locale.ERRORSREPEAT_PASSWORD_ERROR,
                 isLocalError: true
             });
         }
@@ -72,47 +73,47 @@ class RegisterComponent extends AuthFormComponent {
     render() {
         return (
             <AuthWrapperComponent
-                title={'Project Blog <span>(Register)</span>'}
-                linkText='I already have an account!'
-                linkTo='/login'
+                title={locale.AUTH.REGISTER_TITLE}
+                linkText={locale.AUTH.GO_TO_LOGIN}
+                linkTo={Routes.LOGIN}
             >
                 <Form noValidate onSubmit={this._handleSubmit}>
                     <FormGroup>
-                        <Label for='username'>Username</Label>
+                        <Label for='username'>{locale.AUTH.USERNAME_LABEL}</Label>
                         <Input
                             type='text'
                             name='username'
                             id='username'
-                            placeholder='super-user-777'
+                            placeholder={locale.AUTH.USERNAME_PLACEHOLDER}
                             value={this.state.username}
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='password'>Password</Label>
+                        <Label for='password'>{locale.AUTH.PASSWORD_LABEL}</Label>
                         <Input
                             type='password'
                             name='password'
                             id='password'
-                            placeholder='••••••••'
+                            placeholder={locale.AUTH.USERNAME_PLACEHOLDER}
                             value={this.state.password}
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='repeatPassword'>Repeat password</Label>
+                        <Label for='repeatPassword'>{locale.AUTH.REPEAT_PASSWORD_LABEL}</Label>
                         <Input
                             type='password'
                             name='repeatPassword'
                             id='repeatPassword'
-                            placeholder='••••••••'
+                            placeholder={locale.AUTH.REPEAT_PASSWORD_PLACEHOLDER}
                             value={this.state.repeatPassword}
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     {this.renderErrorMessages()}
                     <hr/>
-                    <Button color='primary' block>Register</Button>
+                    <Button color='primary' block>{locale.AUTH.REGISTER_SUBMIT_BUTTON}</Button>
                 </Form>
             </AuthWrapperComponent>
         );

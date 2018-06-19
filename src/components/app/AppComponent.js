@@ -6,6 +6,7 @@ import {ConnectedRouter} from 'react-router-redux';
 import Route from 'react-router-dom/Route';
 import Redirect from 'react-router-dom/Redirect';
 import Switch from 'react-router-dom/Switch';
+import {Routes} from 'constants.js';
 import LoginContainer from 'containers/LoginContainer';
 import RegisterContainer from 'containers/RegisterContainer';
 import FeedContainer from 'containers/FeedContainer';
@@ -21,31 +22,35 @@ function AppComponent(props) {
         );
     }
 
-    const redirectToLogin = () => <Redirect to='/login'/>;
-    const redirectToFeed = () => <Redirect to='/feed'/>;
+    const redirectToLogin = () => <Redirect to={Routes.LOGIN}/>;
+    const redirectToFeed = () => <Redirect to={Routes.FEED}/>;
 
     return (
         <Provider store={props.store}>
             <ConnectedRouter history={props.history}>
                 <Switch>
-                    <Route exact path='/' render={props.isAuthenticated ? redirectToFeed : redirectToLogin}/>
+                    <Route
+                        exact
+                        path={Routes.ROOT}
+                        render={props.isAuthenticated ? redirectToFeed : redirectToLogin}
+                    />
                     <AuthLayoutComponent
-                        path='/login'
+                        path={Routes.LOGIN}
                         component={LoginContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
                     <AuthLayoutComponent
-                        path='/register'
+                        path={Routes.REGISTER}
                         component={RegisterContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
                     <CommonLayoutComponent
-                        path='/feed'
+                        path={Routes.FEED}
                         component={FeedContainer}
                         isAuthenticated={props.isAuthenticated}
                     />
                     <CommonLayoutComponent
-                        path='/article/:id'
+                        path={Routes.ARTICLE}
                         component={ArticleContainer}
                         isAuthenticated={props.isAuthenticated}
                     />

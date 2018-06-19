@@ -8,6 +8,8 @@ import Button from 'reactstrap/lib/Button';
 import CardComponent from 'components/feed/card/CardComponent';
 import styles from './GridComponent.scss';
 import NewArticleContainer from 'containers/NewArticleContainer';
+import locale from 'locale.js';
+import {Routes} from 'constants.js';
 
 function GridComponent(props) {
     return (
@@ -22,12 +24,12 @@ function GridComponent(props) {
                 }
             </Masonry>
             {props.showMoreButton && <Button onClick={props.fetchButtonClick} className={styles.showMoreButton}>
-                Show more
+                {locale.GRID.SHOW_MORE_BUTTON}
             </Button>}
-            <Link to={`${props.match.url}/new`}>
+            <Link to={Routes.NEW_ARTICLE}>
                 <div className={styles.addButton}/>
             </Link>
-            <Route path={`${props.match.url}/new`} component={NewArticleContainer}/>
+            <Route path={Routes.NEW_ARTICLE} component={NewArticleContainer}/>
         </div>
     );
 }

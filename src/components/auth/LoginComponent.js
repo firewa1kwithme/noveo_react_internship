@@ -8,6 +8,7 @@ import Input from 'reactstrap/lib/Input';
 import AuthWrapperComponent from 'components/auth/auth-wrapper/AuthWrapperComponent';
 import AuthFormComponent from 'components/auth/AuthFormComponent';
 import locale from 'locale.js';
+import {Routes} from 'constants.js';
 
 class LoginComponent extends AuthFormComponent {
     constructor(props) {
@@ -33,7 +34,7 @@ class LoginComponent extends AuthFormComponent {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
                     isFormSubmitted: true,
-                    errorMessage: locale.errors.EMPTY_FIELDS,
+                    errorMessage: locale.ERRORSEMPTY_FIELDS,
                     isLocalError: true
                 });
             }
@@ -52,36 +53,36 @@ class LoginComponent extends AuthFormComponent {
     render() {
         return (
             <AuthWrapperComponent
-                title={'Project Blog <span>(Login)</span>'}
-                linkText='I have to register!'
-                linkTo='/register'
+                title={locale.AUTH.LOGIN_TITLE}
+                linkText={locale.AUTH.GO_TO_REGISTER}
+                linkTo={Routes.REGISTER}
             >
                 <Form onSubmit={this._handleSubmit} noValidate>
                     <FormGroup>
-                        <Label for='email'>Email</Label>
+                        <Label for='username'>{locale.AUTH.USERNAME_LABEL}</Label>
                         <Input
                             type='text'
                             name='username'
                             id='username'
-                            placeholder='user@example.com'
+                            placeholder={locale.AUTH.USERNAME_PLACEHOLDER}
                             value={this.state.username}
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     <FormGroup>
-                        <Label for='password'>Password</Label>
+                        <Label for='password'>{locale.AUTH.PASSWORD_LABEL}</Label>
                         <Input
                             type='password'
                             name='password'
                             id='password'
-                            placeholder='••••••••'
+                            placeholder={locale.AUTH.PASSWORD_PLACEHOLDER}
                             value={this.state.password}
                             onChange={this.handleFieldChange}
                         />
                     </FormGroup>
                     {this.renderErrorMessages()}
                     <hr/>
-                    <Button color='primary' block>Log in</Button>
+                    <Button color='primary' block>{locale.AUTH.LOGIN_SUBMIT_BUTTON}</Button>
                 </Form>
             </AuthWrapperComponent>
         );

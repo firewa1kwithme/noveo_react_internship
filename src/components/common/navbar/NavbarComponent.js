@@ -8,13 +8,15 @@ import NavItem from 'reactstrap/lib/NavItem';
 import Button from 'reactstrap/lib/Button';
 import styles from './NavbarComponent.scss';
 import logo from 'assets/images/logo.png';
+import {Routes} from 'constants.js';
+import locale from 'locale.js';
 
 function NavbarComponent({user, logout}) {
     return (
         <Navbar className={styles.navbar}>
-            <NavbarBrand to='/' tag={Link}>
+            <NavbarBrand to={Routes.ROOT} tag={Link}>
                 <img src={logo}/>
-                <span>Project Blog</span>
+                <span>{locale.NAVBAR.APP_TITLE}</span>
             </NavbarBrand>
             <Nav navbar>
                 <Fragment>
@@ -22,7 +24,14 @@ function NavbarComponent({user, logout}) {
                         {user.username}
                     </NavItem>
                     <NavItem>
-                        <Button outline color='white' size='sm' onClick={logout}>Logout</Button>
+                        <Button
+                            outline
+                            color='white'
+                            size='sm'
+                            onClick={logout}
+                        >
+                            {locale.NAVBAR.LOGOUT_BUTTON}
+                        </Button>
                     </NavItem>
                 </Fragment>
             </Nav>

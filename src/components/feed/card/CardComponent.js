@@ -9,6 +9,8 @@ import CardLink from 'reactstrap/lib/CardLink';
 import Link from 'react-router-dom/Link';
 import moment from 'moment';
 import styles from './CardComponent.scss';
+import {Routes} from 'constants.js';
+import locale from 'locale.js';
 
 function CardComponent(props) {
     return (
@@ -21,16 +23,24 @@ function CardComponent(props) {
                 <img
                     width='100%'
                     src={props.imageUrl}
-                    alt='Card image cap'
+                    onError={(e) => {
+                        e.target.style.display = 'none';
+                    }}
                 />
                 <CardBody>
-                    <CardText dangerouslySetInnerHTML={{__html: props.content}}/>
-                    <CardLink tag={Link} to={`/article/${props.id}`}>Show more</CardLink>
+                    <CardText>
+                        {props.content.substring(0, CardComponent.MAX_CONTENT_LENGTH)}{locale.CARD.ELLIPSES}
+                    </CardText>
+                    <CardLink tag={Link} to={Routes.ARTICLE.replace(/:id/, props.id)}>
+                        {locale.CARD.SHOW_ARTICLE_BUTTON}
+                    </CardLink>
                 </CardBody>
             </Card>
         </div>
     );
 }
+
+CardComponent.MAX_CONTENT_LENGTH = 250;
 
 CardComponent.propTypes = {
     id: PropTypes.number.isRequired,

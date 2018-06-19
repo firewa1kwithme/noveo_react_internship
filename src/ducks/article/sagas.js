@@ -3,6 +3,11 @@ import actions from './actions';
 import services from './services';
 import selectors from './selectors';
 
+/**
+ * @param {number} limit
+ * @param {number} offset
+ * @return {IterableIterator<*>}
+ */
 export function* fetchArticlesSaga(limit, offset) {
     try {
         yield put(actions.fetchArticlesRequest());
@@ -17,6 +22,10 @@ export function* fetchArticlesSaga(limit, offset) {
     }
 }
 
+/**
+ * @param {string} id
+ * @return {IterableIterator<*>}
+ */
 export function* fetchSingleArticleSaga(id) {
     try {
         let article = yield select(selectors.selectArticle, id);
@@ -35,6 +44,10 @@ export function* fetchSingleArticleSaga(id) {
     }
 }
 
+/**
+ * @param {Object} payload
+ * @return {IterableIterator<*>}
+ */
 export function* createArticleSaga(payload) {
     try {
         yield put(actions.createArticleRequest());

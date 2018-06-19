@@ -42,7 +42,6 @@ export function* loginSaga(credentials) {
  */
 export function* fetchUserSaga() {
     try {
-
         yield put(actions.fetchUserRequest());
 
         const {user} = yield call(services.fetchUser);

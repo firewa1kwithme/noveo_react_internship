@@ -8,13 +8,16 @@ function ArticleOverviewComponent(props) {
         <div className={styles.article}>
             <h1>{props.title}</h1>
             <hr/>
-            <h5 className={styles.subTitle}>{moment(props.createdAt).format('DD/MM/YYYY')}</h5>
+            <h5 className={styles.subTitle}>
+                {`${props.user.username}, ${moment(props.createdAt).format('DD/MM/YYYY')}`}
+            </h5>
             <img
-                width='100%'
                 src={props.imageUrl}
-                alt='Card image cap'
+                onError={(e) => {
+                    e.target.style.display = 'none';
+                }}
             />
-            <p dangerouslySetInnerHTML={{__html: props.content}}/>
+            <p>{props.content}</p>
         </div>
     );
 }
@@ -24,7 +27,10 @@ ArticleOverviewComponent.propTypes = {
     title: PropTypes.string,
     createdAt: PropTypes.string,
     imageUrl: PropTypes.string,
-    content: PropTypes.string
+    content: PropTypes.string,
+    user: PropTypes.shape({
+        username: PropTypes.string.isRequired
+    }).isRequired
 };
 
 export default ArticleOverviewComponent;

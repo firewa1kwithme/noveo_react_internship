@@ -10,7 +10,8 @@ import FormGroup from 'reactstrap/lib/FormGroup';
 import Label from 'reactstrap/lib/Label';
 import Input from 'reactstrap/lib/Input';
 import Alert from 'reactstrap/lib/Alert';
-import locale from 'locale.js';
+import locale from '../../locale';
+import {Routes} from '../../constants';
 
 class EditArticleFormComponent extends Component {
     constructor(props) {
@@ -32,19 +33,25 @@ class EditArticleFormComponent extends Component {
         createNewArticle: PropTypes.func.isRequired
     };
 
+    static CLOSE_TIMEOUT = 300;
+
+    /**
+     * @return {undefined|*}
+     * @private
+     */
     _handleCancelClick = () => {
-        this.setState({
+        return this.setState({
             isOpen: false
         }, () => {
             this.closeTimeout = setTimeout(() => {
-                this.props.history.push('/feed');
-            }, 300);
+                this.props.history.push(Routes.FEED);
+            }, EditArticleFormComponent.CLOSE_TIMEOUT);
         });
     };
 
     /**
      * @param {Event} e
-     * @returns {undefined|*}
+     * @return {undefined|*}
      * @private
      */
     _handleSubmit = (e) => {
@@ -55,7 +62,7 @@ class EditArticleFormComponent extends Component {
         for (let key in form) {
             if (form.hasOwnProperty(key) && !form[key]) {
                 return this.setState({
-                    errorMessage: locale.errors.EMPTY_FIELDS
+                    errorMessage: locale.ERRORSEMPTY_FIELDS
                 });
             }
         }
@@ -88,46 +95,47 @@ class EditArticleFormComponent extends Component {
 
     render() {
         return (
-            <Modal isOpen={this.state.isOpen} toggle={() => {
-            }}>
-                <ModalHeader>Create new article</ModalHeader>
+            <Modal isOpen={this.state.isOpen}>
+                <ModalHeader>{locale.ARTICLE_FORM.HEADER}</ModalHeader>
                 <Form noValidate onSubmit={this._handleSubmit}>
                     <ModalBody>
                         <FormGroup>
-                            <Label for='title'>Title</Label>
+                            <Label for='title'>{locale.ARTICLE_FORM.TITLE_LABEL}</Label>
                             <Input
                                 type='text'
                                 name='title'
                                 id='title'
-                                placeholder='Amazing article title'
+                                placeholder={locale.ARTICLE_FORM.TITLE_PLACEHOLDER}
                                 onChange={this._handleInputChange}
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label for='imageUrl'>Image URL</Label>
+                            <Label for='imageUrl'>{locale.ARTICLE_FORM.IMAGE_LABEL}</Label>
                             <Input
                                 type='text'
                                 name='imageUrl'
                                 id='imageUrl'
-                                placeholder='https://image-url.com'
+                                placeholder={locale.ARTICLE_FORM.IMAGE_PLACEHOLDER}
                                 onChange={this._handleInputChange}
                             />
                         </FormGroup>
                         <FormGroup>
-                            <Label for='content'>Article text</Label>
+                            <Label for='content'>{locale.ARTICLE_FORM.CONTENT_LABEL}</Label>
                             <Input
                                 type='textarea'
                                 name='content'
                                 id='content'
-                                placeholder='Enter your minds to share'
+                                placeholder={locale.ARTICLE_FORM.CONTENT_PLACEHOLDER}
                                 onChange={this._handleInputChange}
                             />
                         </FormGroup>
                         {this.state.errorMessage && <Alert color='danger'>{this.state.errorMessage}</Alert>}
                     </ModalBody>
                     <ModalFooter>
-                        <Button type='submit' color='primary'>Create</Button>
-                        <Button type='button' onClick={this._handleCancelClick} color='secondary'>Cancel</Button>
+                        <Button type='submit' color='primary'>{locale.ARTICLE_FORM.SUBMIT_BUTTON}</Button>
+                        <Button type='button' onClick={this._handleCancelClick} color='secondary'>
+                            {locale.ARTICLE_FORM.CANCEL_BUTTON}
+                        </Button>
                     </ModalFooter>
                 </Form>
             </Modal>

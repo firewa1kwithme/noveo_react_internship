@@ -97,7 +97,7 @@ export default {
     },
 
     /**
-     * @returns {Object}
+     * @return {Object}
      */
     flushState() {
         return {
