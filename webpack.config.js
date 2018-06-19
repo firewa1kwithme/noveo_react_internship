@@ -10,33 +10,6 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const publicFolder = path.resolve(__dirname, 'public');
 const srcFolder = path.resolve(__dirname, 'src');
 
-/**
- * Use this array in order to extend scss loaders rules
- *
- * @type {Array.<Object>}
- */
-const defaultStyleLoaders = [
-    {
-        loader: 'postcss-loader',
-        options: {
-            /**
-             * Postcss autoprefixer
-             * https://github.com/postcss/autoprefixer
-             */
-            plugins: [
-                autoprefixer({
-                    browsers: ['Safari >= 9', 'last 2 versions']
-                })
-            ]
-        }
-    },
-    /**
-     * Handle sass files
-     * https://github.com/webpack-contrib/sass-loader
-     */
-    'sass-loader'
-];
-
 const config = {
     /**
      * Define configuration mode
@@ -156,7 +129,6 @@ const config = {
 
             {
                 test: /\.scss$/,
-                include: [path.resolve(srcFolder, 'components')],
                 loader: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -169,24 +141,25 @@ const config = {
                                 localIdentName: '[local]-[hash:base64:5]'
                             }
                         },
-                        ...defaultStyleLoaders
-                    ]
-                })
-            },
-
-            {
-                test: /\.scss$/,
-                exclude: [path.resolve(srcFolder, 'components')],
-                loader: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
                         {
-                            loader: 'css-loader',
+                            loader: 'postcss-loader',
                             options: {
-                                minimize: process.env.NODE_ENV === 'production'
+                                /**
+                                 * Postcss autoprefixer
+                                 * https://github.com/postcss/autoprefixer
+                                 */
+                                plugins: [
+                                    autoprefixer({
+                                        browsers: ['Safari >= 9', 'last 2 versions']
+                                    })
+                                ]
                             }
                         },
-                        ...defaultStyleLoaders
+                        /**
+                         * Handle sass files
+                         * https://github.com/webpack-contrib/sass-loader
+                         */
+                        'sass-loader'
                     ]
                 })
             }
