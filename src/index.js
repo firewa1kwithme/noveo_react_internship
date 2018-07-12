@@ -2,7 +2,18 @@ import 'bootstrap.js';
 import React from 'react';
 import {render} from 'react-dom';
 import styles from './style.scss';
+import AppComponent from './components/AppComponent.js';
 
-const appElement = document.getElementById('app');
 
-render(<div className={styles.someClass}>React Application</div>, appElement);
+const rootElement = document.getElementById('app');
+
+render(
+    <AppComponent
+        fetchUser = {function fetchUser() {
+            return {
+                username: 'Rick'
+            };
+        }}
+    />,
+    rootElement
+);
