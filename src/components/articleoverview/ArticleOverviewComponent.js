@@ -11,6 +11,7 @@ export default class ArticleOverviewComponent extends Component {
         createdAt: PropTypes.string.isRequired,
         imageUrl: PropTypes.string.isRequired
     };
+
     render() {
         return (
             <div className={styles.article}>
@@ -23,5 +24,4 @@ export default class ArticleOverviewComponent extends Component {
         );
     }
 }
-
 
