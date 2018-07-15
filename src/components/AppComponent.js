@@ -1,8 +1,9 @@
 import React, {Component, Fragment} from 'react';
-import PropTypes from 'prop-types';
 import NavBarContainer from '../containers/NavBarContainer';
 import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
 import LoginContainer from '../containers/LoginContainer';
+import FeedContainer from '../containers/FeedContainer';
+import RegisterContainer from '../containers/RegisterContainer';
 
 export default class AppComponent extends Component {
 
@@ -12,6 +13,8 @@ export default class AppComponent extends Component {
                 <NavBarContainer/>
                 <ArticleOverviewContainer/>
                 <LoginContainer/>
+                <RegisterContainer/>
+                <FeedContainer/>
             </Fragment>
         );
     }
