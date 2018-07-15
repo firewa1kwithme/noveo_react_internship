@@ -7,7 +7,7 @@ function fetchArticles () {
             'id': 11,
             'userId': 1,
             'title': 'qwer',
-            'content': '<p>l;seuimvwepoimtf[3w</p>',
+            'content': 'qweqeqweqeqwe',
             'imageUrl': '',
             'createdAt': '12.12.1222',
             'user': {
@@ -17,10 +17,10 @@ function fetchArticles () {
 
         },
         {
-            'id': 11,
+            'id': 12,
             'userId': 1,
             'title': 'qwer',
-            'content': '<p>l;seuimvwepoimtf[3w</p>',
+            'content': 'afawrcawraw',
             'imageUrl': '',
             'createdAt': '12.12.1222',
             'user': {
@@ -40,12 +40,12 @@ export default class FeedContainer extends Component {
     }
     componentDidMount() {
         this.setState({
-            articles: this.fetchArticles()
+            articles: fetchArticles()
         });
     }
     render() {
         return (
-            <FeedComponent {...this.state.articles}/>
+            <FeedComponent articles={this.state.articles}/>
         );
     }
 

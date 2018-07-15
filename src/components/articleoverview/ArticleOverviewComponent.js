@@ -5,11 +5,11 @@ import styles from './ArticleOverviewComponent.scss';
 //TODO: сократить
 export default class ArticleOverviewComponent extends Component {
     static propTypes = {
-        title: PropTypes.string.isRequired,
-        content: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        content: PropTypes.string,
         username: PropTypes.string,
-        createdAt: PropTypes.string.isRequired,
-        imageUrl: PropTypes.string.isRequired
+        createdAt: PropTypes.string,
+        imageUrl: PropTypes.string
     };
 
     render() {

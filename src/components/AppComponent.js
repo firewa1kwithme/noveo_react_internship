@@ -12,8 +12,9 @@ export default class AppComponent extends Component {
             <Fragment>
                 <NavBarContainer/>
                 <ArticleOverviewContainer/>
-                <LoginContainer/>
-                <RegisterContainer/>
+                <div> If registered, please login:<LoginContainer/></div>
+                <div><RegisterContainer/></div>
+                <a> Already registered? </a>
                 <FeedContainer/>
             </Fragment>
         );
