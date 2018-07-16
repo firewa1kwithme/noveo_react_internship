@@ -15,7 +15,6 @@ export default class FeedComponent extends Component {
                         <CardComponent {...item} key={item.id}/>)
                     )
                 }
-                cho
             </div>
         );
     }

@@ -11,13 +11,13 @@ function NavBarComponent (props) {
     const redirectFeed = () => {
         props.history.push('/feed');
     };
-    const condition = props.username;
+    const condition = props.isAuthenticated;
     return (
         <div className={styles.navbar}>
             <h1 onClick={redirectFeed}>Перемоем косточки?</h1>
             {condition
                 ? <Fragment>
-                    <p>{props.username}</p>,
+                    <p>{props.user.username}</p>,
                     <Link to='/login'> Выйти </Link>
                 </Fragment>
                 : <Link to='/login'> Войти </Link>}
@@ -25,7 +25,7 @@ function NavBarComponent (props) {
         </div>
     );
 }
-//
+
 NavBarComponent.propTypes = {
     username: PropTypes.string
 };

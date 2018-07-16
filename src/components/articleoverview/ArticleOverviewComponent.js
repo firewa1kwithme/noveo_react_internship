@@ -17,8 +17,8 @@ export default class ArticleOverviewComponent extends Component {
             <div className={styles.article}>
                 <h1>{this.props.title}</h1>
                 <div className={styles.usernameDate}>{this.props.username}</div>
+                <p>{this.props.content}</p>
                 <img src={this.props.imageUrl}/>
-                <div>{this.props.content}</div>
                 <div className={styles.usernameDate}>{this.props.createdAt}</div>
             </div>
         );

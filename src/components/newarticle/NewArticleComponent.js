@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import styles from './NewArticleComponent.scss';
 
 //TODO: создает объект article или просто передает некоторые поля в контейнер?
@@ -10,7 +10,7 @@ import styles from './NewArticleComponent.scss';
 class NewArticleComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {title: '', content: '', imageURL: '', createdAt: ''};
+        this.state = {title: '', content: '', imageUrl: '', createdAt: ''};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -33,8 +33,6 @@ class NewArticleComponent extends Component {
     }
 
     render() {
-        console.log('Component ');
-        console.log(this.props);
         return (
             <Fragment>
                 <form onSubmit={this.handleSubmit} className={styles.newArticleForm}>
@@ -44,13 +42,12 @@ class NewArticleComponent extends Component {
                     </label>
                     <label>
                         Content:
-                        <p><textarea value={this.state.content} onChange={this.handleChange}
-                                     name='content'/></p>
+                        <p><textarea value={this.state.content} onChange={this.handleChange} name='content'/></p>
                     </label>
                     <label>
                         pic:
-                        <p><input type='text' value={this.state.imageURL} onChange={this.handleChange}
-                                  name='imageURL'/></p>
+                        <p><input type='text' value={this.state.imageUrl} onChange={this.handleChange}
+                                  name='imageUrl'/></p>
                     </label>
                     <input type='submit' value='Post'/>
                 </form>
