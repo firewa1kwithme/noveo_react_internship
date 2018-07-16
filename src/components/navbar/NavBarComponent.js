@@ -8,10 +8,13 @@ function NavBarComponent (props) {
     const redirectNewArticle = () => {
         props.history.push('/new');
     };
+    const redirectFeed = () => {
+        props.history.push('/feed');
+    };
     const condition = props.username;
     return (
         <div className={styles.navbar}>
-            <h1>Перемоем косточки?</h1>
+            <h1 onClick={redirectFeed}>Перемоем косточки?</h1>
             {condition
                 ? <Fragment>
                     <p>{props.username}</p>,

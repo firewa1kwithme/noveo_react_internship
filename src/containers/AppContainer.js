@@ -5,7 +5,7 @@ import AppComponent from '../components/AppComponent.js';
 export default class AppContainer extends Component {
     render () {
         return (
-            <AppComponent isAuthenticated={false}/>
+            <AppComponent isAuthenticated={true}/>
         );
     }
 }
