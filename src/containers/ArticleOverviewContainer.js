@@ -12,7 +12,7 @@ export default class ArticleOverviewContainer extends Component {
 
     fetchArticle = () => {
         return {
-            title: 'Title',
+            title: 'Пилотный выпуск',
             username: 'Username',
             imageURL: '',
             content: 'Content',
@@ -25,6 +25,7 @@ export default class ArticleOverviewContainer extends Component {
         });
     }
     render() {
+        console.log(this.props);
         return (
             <ArticleOverviewComponent {...this.state.article}/>
         );

@@ -6,6 +6,8 @@ export default class LoginContainer extends Component {
         console.log('Form parameters: ', login, password);
     };
     render() {
+        console.log('Container ');
+        console.log(this.props);
         return (
             <LoginComponent loginFunction={this.login}/>
         );

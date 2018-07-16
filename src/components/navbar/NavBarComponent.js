@@ -1,6 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styles from './NavBarComponent.scss';
+import {Link} from 'react-router-dom';
 
 
 export default function NavBarComponent (props) {
@@ -8,13 +9,13 @@ export default function NavBarComponent (props) {
     const condition = props.username;
     return (
         <div className={styles.navbar}>
-            <h1>Blog</h1>
+            <h1>Перемоем косточки?</h1>
             {condition
                 ? <Fragment>
                     <p>{props.username}</p>,
-                    <button>logout</button>
+                    <Link to='/login'> Выйти </Link>
                 </Fragment>
-                : <button>login</button>}
+                : <Link to='/login'> Войти </Link>}
         </div>
     );
 }

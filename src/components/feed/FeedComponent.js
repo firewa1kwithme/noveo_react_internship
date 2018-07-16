@@ -11,7 +11,7 @@ export default class FeedComponent extends Component {
             <div>
                 {
                     this.props.articles.map(item => (
-                        <CardComponent {...item} key={item}/>)
+                        <CardComponent {...item} key={item.id}/>)
                     )
                 }
                 cho
