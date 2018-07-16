@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FeedComponent from '../components/feed/FeedComponent';
 
-function fetchArticles () {
+function fetchArticles() {
     return [
         {
             'id': 1,
@@ -18,27 +18,27 @@ function fetchArticles () {
         },
         {
             'id': 2,
-            'userId': 2,
+            'userId': 1,
             'title': 'Обзор №2',
             'content': 'Что же! Прошлая статья набрала популярность, поэтому я решил сделать второй выпуск о... вишневых косточках!',
-            'imageUrl': '',
-            'createdAt': '12.12.1222',
+            'imageUrl': 'https://takprosto.cc/wp-content/uploads/v/vishnevye-kostochki/2.jpg',
+            'createdAt': '03.06.2015',
             'user': {
-                'id': 2,
-                'username': 'sefewfg'
+                'id': 1,
+                'username': 'kostoPrav'
             }
 
         },
         {
             'id': 3,
-            'userId': 2,
+            'userId': 1,
             'title': 'Обзор №3',
             'content': 'Я хотел сделать обзор арбузных косточек, но их мы рассматривать не будем, так как арбуз - ягода',
-            'imageUrl': '',
-            'createdAt': '12.12.1222',
+            'imageUrl': 'https://takprosto.cc/wp-content/uploads/p/polza-arbuznyh-semechek/1.jpg',
+            'createdAt': '42.06.2015',
             'user': {
-                'id': 2,
-                'username': 'sefewfg'
+                'id': 1,
+                'username': 'kostoPrav'
             }
 
         }];
@@ -51,11 +51,13 @@ export default class FeedContainer extends Component {
             articles: []
         };
     }
+
     componentDidMount() {
         this.setState({
             articles: fetchArticles()
         });
     }
+
     render() {
         return (
             <FeedComponent articles={this.state.articles}/>

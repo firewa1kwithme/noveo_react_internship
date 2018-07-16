@@ -4,6 +4,7 @@ import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
 import LoginContainer from '../containers/LoginContainer';
 import FeedContainer from '../containers/FeedContainer';
 import RegisterContainer from '../containers/RegisterContainer';
+import NewArticleContainer from '../containers/NewArticleContainer'
 //
 // export default class AppComponent extends Component {
 //
@@ -44,7 +45,9 @@ export default function AppComponent(props) {
                 <AuthLayoutComponent path={Routes.REGISTER} component={RegisterContainer}
                                      isAuthenticated={props.isAuthenticated}/>
                 {/*<Route path='/register' component={RegisterContainer}/>*/}
-                <CommonLayoutComponent path='/article/:id' component={LoginContainer}
+                <CommonLayoutComponent path='/article/:id' component={ArticleOverviewContainer}
+                                       isAuthenticated={props.isAuthenticated}/>
+                <CommonLayoutComponent path={Routes.NEW} component={NewArticleContainer}
                                        isAuthenticated={props.isAuthenticated}/>
                 {/*<Route path='/article/:number' component={ArticleOverviewContainer}/>*/}
                 <Redirect from='/' to='/feed'/>

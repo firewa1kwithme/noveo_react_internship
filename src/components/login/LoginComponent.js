@@ -37,14 +37,14 @@ class LoginComponent extends Component {
                 <form onSubmit={this.handleSubmit} className={styles.loginForm}>
                     <label className={styles.loginLabel}>
                         Login:
-                        <input type='text' value={this.state.login} onChange={this.handleChange} name='login'/>
+                        <p><input type='text' value={this.state.login} onChange={this.handleChange} name='login'/></p>
                     </label>
                     <label className={styles.passwordLabel}>
                         Password:
-                        <input type='password' value={this.state.password} onChange={this.handleChange}
-                               name='password'/>
+                        <p><input type='password' value={this.state.password} onChange={this.handleChange}
+                                  name='password'/></p>
                     </label>
-                    <input type='submit' value='Submit' className={styles.submitButton}/>
+                    <p><input type='submit' value='Submit' className={styles.submitButton}/></p>
                 </form>
                 {/*<Link to='/register'> Нет аккаунта? </Link>*/}
                 <p onClick={this.redirectRegister}> Нет аккаунта? </p>

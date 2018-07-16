@@ -3,8 +3,10 @@ import React, {Fragment} from 'react';
 import NavBarContainer from '../../../containers/NavBarContainer';
 import Routes from '../../../constants';
 
+
 //TODO: выйти в навбаре если залогинен
-export default function AuthLayoutComponent({component: Component, isAuthenticated, ...restProps}) {
+export default function CommonLayoutComponent({component: Component, isAuthenticated, ...restProps}) {
+    // console.log(...restProps);
     if (!isAuthenticated) {
         return <Redirect to={Routes.LOGIN}/>;
     }
@@ -19,3 +21,5 @@ export default function AuthLayoutComponent({component: Component, isAuthenticat
         }}/>
     );
 }
+
+

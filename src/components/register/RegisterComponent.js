@@ -34,27 +34,27 @@ class RegisterComponent extends Component {
                 <form onSubmit={this.handleSubmit} className={styles.registerForm}>
                     <label>
                         Login:
-                        <input
+                        <p><input
                             type='text'
                             value={this.state.login}
                             onChange={this.handleChange}
-                            name='login'/>
+                            name='login'/></p>
                     </label>
                     <label>
                         Password:
-                        <input
+                        <p><input
                             type='password'
                             value={this.state.password}
                             onChange={this.handleChange}
-                            name='password'/>
+                            name='password'/></p>
                     </label>
                     <label>
-                        Please, enter password again:
-                        <input
+                        Password again:
+                        <p><input
                             type='password'
                             value={this.state.passwordTwo}
                             onChange={this.handleChange}
-                            name='passwordTwo'/>
+                            name='passwordTwo'/></p>
                     </label>
                     <input type='submit' value='Submit'/>
                 </form>
