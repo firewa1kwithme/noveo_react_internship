@@ -1,6 +1,6 @@
 import {Redirect, Route} from 'react-router-dom';
 import React, {Fragment} from 'react';
-import NavBarContainer from '../../../containers/NavBarContainer';
+import {ConnectedNavBarContainer} from '../../../containers/NavBarContainer';
 import Routes from '../../../constants';
 
 
@@ -14,8 +14,8 @@ export default function CommonLayoutComponent({component: Component, isAuthentic
         <Route {...restProps} render={props => {
             return (
                 <Fragment>
-                    <NavBarContainer/>
-                    <Component {...props}/>
+                    <ConnectedNavBarContainer/>
+                    <Component {...props} onLogin={restProps.onLogin} onLogout={restProps.onLogout}/>
                 </Fragment>
             );
         }}/>

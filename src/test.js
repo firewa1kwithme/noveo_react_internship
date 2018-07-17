@@ -368,3 +368,55 @@ ReactDOM.render(
 );
 
  */
+
+// Создадим функцию редюсер
+// Заметьте, иногда мы можем ошибиться и отправить несуществующий экшен
+// Поэтму необходимо иметь блок default на этот случай
+// Это необходимо, чтобы вернуть предыдущий state и не сломать приложение.
+// Также это необходимо для инициализации store,
+// потому что для этого также вызывается reducer
+const counter = (state = 0, action) => {
+    switch (action.type) {
+        case 'INCREMENT':
+            return state + 1;
+        case 'DECREMENT':
+            return state - 1;
+        default:
+            return state;
+    }
+}
+
+// Импортируем createStore фнукцию и создаем store, передав внутрь reducer
+const { createStore } = Redux;
+const store = createStore(counter);
+
+// Создадим компонент для отображения счетчика
+// Этот компонент получает текущее значение счетчика, и две функции, для его изменения
+let Counter = ({value, onIncrement, onDecrement}) => (
+    <div className='redux'>
+        <h1>{value}</h1>
+        <button onClick={onIncrement}>+</button>
+        <button onClick={onDecrement}>-</button>
+    </div>
+);
+
+// Рендерим наш компонент, передав ему необходимые свойства
+// Функции увелечение и уменьшения счетчика - это метод store.dispatch,
+// вызванный с определенным экшеном
+const render = () => {
+    ReactDOM.render(
+        <Counter
+            value={store.getState()}
+            onIncrement={()=> store.dispatch({type: 'INCREMENT'})}
+            onDecrement={()=> store.dispatch({type: 'DECREMENT'})}
+        />,
+        document.querySelector('body')
+    );
+};
+
+// Подписываемся на изменения стора
+// Теперь всегда при изменении состояния приложения мы будем запускать render()
+store.subscribe(render);
+
+// Вызовем рендер для инициализации счетчика
+render();

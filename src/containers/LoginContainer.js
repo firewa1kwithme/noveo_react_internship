@@ -1,9 +1,12 @@
 import React, {Component} from 'react';
 import LoginComponent from '../components/login/LoginComponent.js';
+import {loginAction, logoutAction} from '../redux/actions';
+import {connect} from 'react-redux';
 
-export default class LoginContainer extends Component {
+class LoginContainer extends Component {
     login = ({login, password}) => {
         console.log('Form parameters: ', login, password);
+        this.props.onLogin(login, password);
     };
 
     render() {
@@ -14,3 +17,20 @@ export default class LoginContainer extends Component {
         );
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        username: state
+    };
+}
+
+
+function mapDispatchToProps(dispatch) {
+    return {
+        onLogin: (login, password) => {
+            dispatch(loginAction(login));
+        }
+    };
+}
+
+export const ConnectedLoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

@@ -2,6 +2,7 @@ import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styles from './LoginComponent.scss';
 import {Link, withRouter} from 'react-router-dom';
+// import {loginFunction} from "../../redux/actions";
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -36,13 +37,13 @@ class LoginComponent extends Component {
             <Fragment>
                 <form onSubmit={this.handleSubmit} className={styles.loginForm}>
                     <label className={styles.loginLabel}>
-                        Login:
-                        <p><input type='text' value={this.state.login} onChange={this.handleChange} name='login'/></p>
+                        Username:
+                        <p><input type='text' value={this.state.username} onChange={this.handleChange} name='login'/></p>
                     </label>
                     <label className={styles.passwordLabel}>
                         Password:
                         <p><input type='password' value={this.state.password} onChange={this.handleChange}
-                                  name='password'/></p>
+                            name='password'/></p>
                     </label>
                     <p><input type='submit' value='Submit' className={styles.submitButton}/></p>
                 </form>
