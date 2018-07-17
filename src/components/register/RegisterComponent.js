@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import styles from './RegisterComponent.scss';
 
 //TODO: если логин занят, если пароли не совпадают
@@ -58,7 +58,6 @@ class RegisterComponent extends Component {
                     </label>
                     <p><input type='submit' value='Submit'/></p>
                 </form>
-                {/*<Link to='/login'> Уже есть аккаунт? </Link>*/}
                 <p onClick={this.redirectLogin}> Уже есть аккаунт? </p>
             </Fragment>
         );

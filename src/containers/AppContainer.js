@@ -23,5 +23,4 @@ function mapStateToProps(state) {
     };
 }
 
-import {loginAction, logoutAction} from '../redux/actions';
 export const ConnectedAppContainer = connect(mapStateToProps)(AppContainer);

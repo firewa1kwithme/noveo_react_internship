@@ -12,7 +12,7 @@ class FeedComponent extends Component {
         user: PropTypes.object
     };
 
-    redirectArticleOverview =() => {
+    redirectArticleOverview = () => {
         this.props.history.push(`/article/${this.props.id}`);
     };
 
@@ -24,9 +24,11 @@ class FeedComponent extends Component {
                 <img src={this.props.imageUrl}/>
                 <p className={styles.cardArticleContent}>{this.props.content}</p>
                 <div className={styles.createdAt}>{this.props.createdAt}</div>
-                <div onClick={this.redirectArticleOverview} className={styles.redirectToArticle}> Нужно всего лишь... </div>
+                <div onClick={this.redirectArticleOverview} className={styles.redirectToArticle}> Нужно всего лишь...
+                </div>
             </div>
         );
     }
 }
+
 export default withRouter(FeedComponent);

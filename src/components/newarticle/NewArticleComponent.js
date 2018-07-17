@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import { withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import styles from './NewArticleComponent.scss';
 
 //TODO: создает объект article или просто передает некоторые поля в контейнер?
@@ -47,7 +47,7 @@ class NewArticleComponent extends Component {
                     <label>
                         pic:
                         <p><input type='text' value={this.state.imageUrl} onChange={this.handleChange}
-                                  name='imageUrl'/></p>
+                            name='imageUrl'/></p>
                     </label>
                     <input type='submit' value='Post'/>
                 </form>

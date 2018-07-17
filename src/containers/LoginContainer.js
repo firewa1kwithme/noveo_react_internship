@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginComponent from '../components/login/LoginComponent.js';
-import {loginAction, logoutAction} from '../redux/actions';
+import {loginAction} from '../redux/actions';
 import {connect} from 'react-redux';
 
 class LoginContainer extends Component {

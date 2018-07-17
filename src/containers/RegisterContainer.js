@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import RegisterComponent from '../components/register/RegisterComponent';
 import {connect} from 'react-redux';
-import {loginAction, logoutAction} from '../redux/actions';
+import {loginAction} from '../redux/actions';
 
 
 class RegisterContainer extends Component {

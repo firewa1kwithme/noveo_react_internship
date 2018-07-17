@@ -1,33 +1,10 @@
-// import React, {Component, Fragment} from 'react';
-import NavBarContainer from '../containers/NavBarContainer';
 import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
 import {ConnectedLoginContainer} from '../containers/LoginContainer';
 import FeedContainer from '../containers/FeedContainer';
 import {ConnectedRegisterContainer} from '../containers/RegisterContainer';
-import NewArticleContainer from '../containers/NewArticleContainer'
-//
-// export default class AppComponent extends Component {
-//
-//     render() {
-//         return (
-//             <Fragment>
-//                 <NavBarContainer/>
-//                 <ArticleOverviewContainer/>
-//                 <div> If registered, please login:<LoginContainer/></div>
-//                 <div><RegisterContainer/></div>
-//                 <a> Already registered? </a>
-//                 <FeedContainer/>
-//             </Fragment>
-//         );
-//     }
-// }
-
-//TODO: в одну строчку
-import React, {Fragment} from 'react';
-import {BrowserRouter as Router} from 'react-router-dom';
-import Route from 'react-router-dom/Route';
-import Switch from 'react-router-dom/Switch';
-import Redirect from 'react-router-dom/Redirect';
+import NewArticleContainer from '../containers/NewArticleContainer';
+import React from 'react';
+import {BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import AuthLayoutComponent from './layouts/auth/AuthLayoutComponent';
 import CommonLayoutComponent from './layouts/common/CommonLayoutComponent';
 import Routes from '../constants';
@@ -37,19 +14,16 @@ export default function AppComponent(props) {console.log('AppComponent', props);
     return (
         <Router>
             <Switch>
-                {/*<Route path='/feed' component={FeedContainer}/>*/}
                 <AuthLayoutComponent path={Routes.LOGIN} component={ConnectedLoginContainer}
                     isAuthenticated={props.isAuthenticated} />
                 <CommonLayoutComponent path={Routes.FEED} component={FeedContainer}
                     isAuthenticated={props.isAuthenticated}/>
                 <AuthLayoutComponent path={Routes.REGISTER} component={ConnectedRegisterContainer}
                     isAuthenticated={props.isAuthenticated}/>
-                {/*<Route path='/register' component={RegisterContainer}/>*/}
                 <CommonLayoutComponent path='/article/:id' component={ArticleOverviewContainer}
                     isAuthenticated={props.isAuthenticated}/>
                 <CommonLayoutComponent path={Routes.NEW} component={NewArticleContainer}
                     isAuthenticated={props.isAuthenticated}/>
-                {/*<Route path='/article/:number' component={ArticleOverviewContainer}/>*/}
                 <Redirect from='/' to='/feed'/>
             </Switch>
         </Router>

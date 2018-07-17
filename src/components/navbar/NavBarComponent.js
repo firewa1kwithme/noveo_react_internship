@@ -1,10 +1,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styles from './NavBarComponent.scss';
-import {Link, withRouter} from 'react-router-dom';
-
-//TODO: не работают кнопки
-import {loginFunction, logoutFunction} from '../../redux/actions';
+import {withRouter} from 'react-router-dom';
 
 function NavBarComponent (props) {
 
@@ -14,7 +11,6 @@ function NavBarComponent (props) {
     const redirectFeed = () => {
         props.history.push('/feed');
     };
-    // const condition = props.isAuthenticated;
     const condition = props.username!=='';
     return (
         <div className={styles.navbar}>
