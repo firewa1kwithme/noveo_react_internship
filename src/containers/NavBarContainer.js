@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import NavBarComponent from '../components/navbar/NavBarComponent.js';
-import {connect} from "react-redux";
-import {loginAction, logoutAction} from "../redux/actions";
+import {connect} from 'react-redux';
+import {loginAction, logoutAction} from '../redux/actions';
 
 class NavBarContainer extends Component {
     constructor(props) {
@@ -25,7 +25,8 @@ class NavBarContainer extends Component {
     // }
     render() {
         return (
-            <NavBarComponent username={this.props.username} onLogin={this.props.onLogin} onLogout={this.props.onLogout}/>
+            <NavBarComponent username={this.props.username} onLogin={this.props.onLogin}
+                onLogout={this.props.onLogout}/>
         );
     }
 }

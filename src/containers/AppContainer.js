@@ -15,9 +15,11 @@ class AppContainer extends Component {
     }
 }
 
+import {selectUsername} from '../redux/selectors';
+
 function mapStateToProps(state) {
     return {
-        username: state
+        username: selectUsername(state)
     };
 }
 

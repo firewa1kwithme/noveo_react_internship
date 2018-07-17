@@ -3,7 +3,7 @@ import NavBarContainer from '../containers/NavBarContainer';
 import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
 import {ConnectedLoginContainer} from '../containers/LoginContainer';
 import FeedContainer from '../containers/FeedContainer';
-import RegisterContainer from '../containers/RegisterContainer';
+import {ConnectedRegisterContainer} from '../containers/RegisterContainer';
 import NewArticleContainer from '../containers/NewArticleContainer'
 //
 // export default class AppComponent extends Component {
@@ -42,7 +42,7 @@ export default function AppComponent(props) {console.log('AppComponent', props);
                     isAuthenticated={props.isAuthenticated} />
                 <CommonLayoutComponent path={Routes.FEED} component={FeedContainer}
                     isAuthenticated={props.isAuthenticated}/>
-                <AuthLayoutComponent path={Routes.REGISTER} component={RegisterContainer}
+                <AuthLayoutComponent path={Routes.REGISTER} component={ConnectedRegisterContainer}
                     isAuthenticated={props.isAuthenticated}/>
                 {/*<Route path='/register' component={RegisterContainer}/>*/}
                 <CommonLayoutComponent path='/article/:id' component={ArticleOverviewContainer}

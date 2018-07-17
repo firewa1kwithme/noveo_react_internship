@@ -56,7 +56,7 @@ class RegisterComponent extends Component {
                             onChange={this.handleChange}
                             name='passwordTwo'/></p>
                     </label>
-                    <input type='submit' value='Submit'/>
+                    <p><input type='submit' value='Submit'/></p>
                 </form>
                 {/*<Link to='/login'> Уже есть аккаунт? </Link>*/}
                 <p onClick={this.redirectLogin}> Уже есть аккаунт? </p>

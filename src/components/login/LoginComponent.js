@@ -47,7 +47,6 @@ class LoginComponent extends Component {
                     </label>
                     <p><input type='submit' value='Submit' className={styles.submitButton}/></p>
                 </form>
-                {/*<Link to='/register'> Нет аккаунта? </Link>*/}
                 <p onClick={this.redirectRegister}> Нет аккаунта? </p>
             </Fragment>
         );
