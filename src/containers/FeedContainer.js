@@ -5,7 +5,6 @@ function fetchArticles() {
     return [
         {
             'id': 1,
-            'userId': 1,
             'title': 'Пилотный выпуск',
             'content': 'Всем привет! Я КостоПрав и сегодня я хочу сделать обзор лимонных косточек. Для того, чтобы ' +
             'добраться до косточки необходимо сперва съесть сам лимон. Мой лимон был кислым и сочным, но кислота была' +
@@ -24,7 +23,6 @@ function fetchArticles() {
         },
         {
             'id': 2,
-            'userId': 1,
             'title': 'Обзор №2',
             'content': 'Что же! Прошлая статья набрала популярность, поэтому я решил сделать второй выпуск о... вишневых косточках!',
             'imageUrl': 'https://takprosto.cc/wp-content/uploads/v/vishnevye-kostochki/2.jpg',
@@ -37,7 +35,6 @@ function fetchArticles() {
         },
         {
             'id': 3,
-            'userId': 1,
             'title': 'Обзор №3',
             'content': 'Я хотел сделать обзор арбузных косточек, но их мы рассматривать не будем, так как арбуз - ягода',
             'imageUrl': 'https://takprosto.cc/wp-content/uploads/p/polza-arbuznyh-semechek/1.jpg',
@@ -50,7 +47,6 @@ function fetchArticles() {
         },
         {
             'id': 4,
-            'userId': 1,
             'title': 'Обзор №4',
             'content': 'Здесь будет обзор сердца авокадо',
             'imageUrl': '',

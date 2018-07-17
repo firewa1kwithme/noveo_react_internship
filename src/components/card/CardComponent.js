@@ -18,13 +18,13 @@ class FeedComponent extends Component {
 
     render() {
         return (
-            <div className={styles.article}>
+            <div className={styles.article} onClick={this.redirectArticleOverview}>
                 <h1>{this.props.title}</h1>
-                <div>{this.props.user.username}</div>
                 <img src={this.props.imageUrl}/>
                 <p className={styles.cardArticleContent}>{this.props.content}</p>
-                <div className={styles.createdAt}>{this.props.createdAt}</div>
-                <div onClick={this.redirectArticleOverview} className={styles.redirectToArticle}> Нужно всего лишь...
+                <div className={styles.footerArticle}>
+                    <div className={styles.createdAt}>{this.props.createdAt}</div>
+                    <div className={styles.username}>@{this.props.user.username}</div>
                 </div>
             </div>
         );
