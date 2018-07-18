@@ -7,8 +7,8 @@ import {selectUsername} from '../selectors';
 class RegisterContainer extends Component {
     register = ({login, password, passwordTwo}) => {
         if (password === passwordTwo) {
-            console.log('Form parameters: ', login, password);
-            this.props.onLogin(login, password);
+            console.log('regiser form parameters: ', login, password);
+            this.props.onRegister(login, password);
         } else {
             console.log('Sorry, password didn`t require');
         }
@@ -28,8 +28,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        onLogin: (login, password) => {
-            dispatch(actions.loginAction(login, password));
+        onRegister: (login, password) => {
+            dispatch(actions.registerAction(login, password));
         }
     };
 }

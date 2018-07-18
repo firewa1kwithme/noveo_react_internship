@@ -11,7 +11,7 @@ class RegisterComponent extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
     static propTypes = {
-        registerFunction: PropTypes.func.isRequired,
+        registerFunction: PropTypes.func,
         history: PropTypes.object.isRequired
     };
 

@@ -14,3 +14,14 @@ export function* loginSaga(credentials) {
     }
 }
 
+export function* registerSaga(credentials) {
+    try {
+        yield put(actions.registerRequest(credentials));
+        const {username} = yield call(services.register, credentials);
+        yield put(actions.registerSuccess(username));
+    } catch (e) {
+        yield put(actions.registerError(e));
+        console.log(e.statusMessage);
+        return e.statusMessage;
+    }
+}

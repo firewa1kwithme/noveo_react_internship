@@ -11,7 +11,7 @@ class LoginComponent extends Component {
     }
 
     static propTypes = {
-        loginFunction: PropTypes.func.isRequired,
+        loginFunction: PropTypes.func,
         history: PropTypes.object.isRequired
     };
 
@@ -30,8 +30,6 @@ class LoginComponent extends Component {
     };
 
     render() {
-        console.log('Component ');
-        console.log(this.props);
         return (
             <Fragment>
                 <form onSubmit={this.handleSubmit} className={styles.loginForm}>

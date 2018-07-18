@@ -1,14 +1,18 @@
 import actionTypes from './action-types';
 
-//TODO: поменять на юзер
-function authFunction(state = '', action, error) {
+// const initialState = {
+// TODO: тут написать из чего состоит изаутентификэйтед, эррор, объект ЮЗЕРА
+// };
+
+function authFunction(state = '', action) {
     switch (action.type) {
+        case actionTypes.registerSuccess:
         case actionTypes.loginSuccess:
             return `${action.username}`;
         case actionTypes.logout:
             return '';
         case actionTypes.loginError:
-            return error;
+            return action.error;
         default:
             return state;
     }

@@ -4,6 +4,7 @@ const actionTypes = {
     loginSuccess: 'LOGIN_SUCCESS',
     loginError: 'LOGIN_ERROR',
     logout: 'LOGOUT',
+    register: 'REGISTER',
     registerRequest: 'REGISTER_REQUEST',
     registerSuccess: 'REGISTER_SUCCESS',
     registerError: 'REGISTER_ERROR'

@@ -1,7 +1,7 @@
 import actionTypes from './action-types';
 
 //TODO: добавить из аутентификатед
-//TODO: поменять на юзер
+//TODO: поменять юзернейм на юзер
 export default {
 
     loginAction(username, password) {
@@ -30,22 +30,31 @@ export default {
     },
     logoutAction() {
         return {
-            type: actionTypes.logout
+            type: actionTypes.logout,
         };
     },
-    registerRequest() {
+    registerAction(username, password) {
         return {
-            type: actionTypes.registerRequest
+            type: actionTypes.registerRequest,
+            username, password
         };
     },
-    registerSuccess() {
+    registerRequest(credentials) {
         return {
-            type: actionTypes.registerSuccess
+            type: actionTypes.registerRequest,
+            credentials
         };
     },
-    registerError() {
+    registerSuccess(username) {
         return {
-            type: actionTypes.registerError
+            type: actionTypes.registerSuccess,
+            username
+        };
+    },
+    registerError(error) {
+        return {
+            type: actionTypes.registerError,
+            error
         };
     }
 };
