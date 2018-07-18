@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import LoginComponent from '../components/login/LoginComponent.js';
-import {loginAction} from '../redux/actions';
+import actions from '../ducks/auth/actions';
 import {connect} from 'react-redux';
 
 class LoginContainer extends Component {
@@ -18,7 +18,7 @@ class LoginContainer extends Component {
     }
 }
 
-import {selectUsername} from '../redux/selectors';
+import {selectUsername} from '../selectors';
 
 function mapStateToProps(state) {
     return {
@@ -30,7 +30,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         onLogin: (login, password) => {
-            dispatch(loginAction(login));
+            dispatch(actions.loginAction(login, password));
         }
     };
 }

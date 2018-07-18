@@ -6081,7 +6081,7 @@ react-popper@^0.10.4:
 
 react-redux@^5.0.7:
   version "5.0.7"
-  resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
+  resolved "https://registry.yarnpkg.com/react-ducks/-/react-ducks-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
   dependencies:
     hoist-non-react-statics "^2.5.0"
     invariant "^2.0.0"
@@ -6103,7 +6103,7 @@ react-router-dom@^4.2.2:
 
 react-router-redux@^5.0.0-alpha.9:
   version "5.0.0-alpha.9"
-  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-5.0.0-alpha.9.tgz#825431516e0e6f1fd93b8807f6bd595e23ec3d10"
+  resolved "https://registry.yarnpkg.com/react-router-ducks/-/react-router-ducks-5.0.0-alpha.9.tgz#825431516e0e6f1fd93b8807f6bd595e23ec3d10"
   dependencies:
     history "^4.7.2"
     prop-types "^15.6.0"
@@ -6265,15 +6265,15 @@ reduce-function-call@^1.0.1:
 
 redux-devtools-extension@^2.13.2:
   version "2.13.2"
-  resolved "https://registry.yarnpkg.com/redux-devtools-extension/-/redux-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
+  resolved "https://registry.yarnpkg.com/ducks-devtools-extension/-/ducks-devtools-extension-2.13.2.tgz#e0f9a8e8dfca7c17be92c7124958a3b94eb2911d"
 
 redux-saga@^0.16.0:
   version "0.16.0"
-  resolved "https://registry.yarnpkg.com/redux-saga/-/redux-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
+  resolved "https://registry.yarnpkg.com/ducks-saga/-/ducks-saga-0.16.0.tgz#0a231db0a1489301dd980f6f2f88d8ced418f724"
 
 redux@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
+  resolved "https://registry.yarnpkg.com/ducks/-/ducks-4.0.0.tgz#aa698a92b729315d22b34a0553d7e6533555cc03"
   dependencies:
     loose-envify "^1.1.0"
     symbol-observable "^1.2.0"

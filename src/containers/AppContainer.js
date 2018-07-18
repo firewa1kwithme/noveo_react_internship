@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import {selectUsername} from '../selectors';
 import AppComponent from '../components/AppComponent.js';
 
 class AppContainer extends Component {
@@ -15,7 +15,6 @@ class AppContainer extends Component {
     }
 }
 
-import {selectUsername} from '../redux/selectors';
 
 function mapStateToProps(state) {
     return {

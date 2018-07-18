@@ -1,12 +1,9 @@
 import 'bootstrap.js';
 import React from 'react';
 import {render} from 'react-dom';
-import AppContainer from './containers/AppContainer';
-import {loginAction, logoutAction} from './redux/actions';
-import {store} from './redux/store';
-import {Provider} from 'react-redux'
-import authFunction from './redux/reducer';
-import actionTypes from './redux/action-types';
+import actions from './ducks/auth/actions';
+import {store} from './store';
+import {Provider} from 'react-redux';
 import {ConnectedAppContainer} from './containers/AppContainer';
 
 const rootElement = document.getElementById('app');

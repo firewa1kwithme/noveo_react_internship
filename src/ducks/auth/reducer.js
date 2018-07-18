@@ -1,15 +1,18 @@
 import actionTypes from './action-types';
 
 //TODO: поменять на юзер
-export default function authFunction(state = '', action) {
+function authFunction(state = '', action, error) {
     switch (action.type) {
-        case actionTypes.login:
+        case actionTypes.loginSuccess:
             return `${action.username}`;
         case actionTypes.logout:
             return '';
+        case actionTypes.loginError:
+            return error;
         default:
             return state;
     }
 
 }
 
+export default authFunction;

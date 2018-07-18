@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import RegisterComponent from '../components/register/RegisterComponent';
 import {connect} from 'react-redux';
-import {loginAction} from '../redux/actions';
-
+import actions from '../ducks/auth/actions';
+import {selectUsername} from '../selectors';
 
 class RegisterContainer extends Component {
     register = ({login, password, passwordTwo}) => {
@@ -19,7 +19,6 @@ class RegisterContainer extends Component {
         );
     }
 }
-import {selectUsername} from '../redux/selectors';
 
 function mapStateToProps(state) {
     return {
@@ -27,11 +26,10 @@ function mapStateToProps(state) {
     };
 }
 
-
 function mapDispatchToProps(dispatch) {
     return {
         onLogin: (login, password) => {
-            dispatch(loginAction(login));
+            dispatch(actions.loginAction(login, password));
         }
     };
 }

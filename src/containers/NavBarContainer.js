@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NavBarComponent from '../components/navbar/NavBarComponent.js';
 import {connect} from 'react-redux';
-import {loginAction, logoutAction} from '../redux/actions';
+import actions from '../ducks/auth/actions';
 
 class NavBarContainer extends Component {
     constructor(props) {
@@ -24,10 +24,10 @@ class NavBarContainer extends Component {
 function mapDispatchToProps(dispatch) {
     return {
         onLogin: () => {
-            dispatch(loginAction());
+            dispatch(actions.loginAction());
         },
         onLogout: () => {
-            dispatch(logoutAction());
+            dispatch(actions.logoutAction());
         }
     };
 }
