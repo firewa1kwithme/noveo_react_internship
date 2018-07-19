@@ -1,21 +1,22 @@
 import actionTypes from './action-types';
 
-// const initialState = {
-// TODO: тут написать из чего состоит изаутентификэйтед, эррор, объект ЮЗЕРА
-// };
-//это же феч артиклз???
-let initialState = {
+const initialState = {
     articlesInfo: {
         allArticles: []
     }
-}
+};
 
 function articleReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.newArticleSuccess:
         case actionTypes.singleArticleSuccess:
         case actionTypes.allArticlesSuccess:
-            return action.article;
+            return {
+                ...state,
+                articlesInfo: {
+                    allArticles: action
+                }
+            };
         case actionTypes.newArticleError:
         case actionTypes.singleArticleError:
         case actionTypes.allArticlesError:

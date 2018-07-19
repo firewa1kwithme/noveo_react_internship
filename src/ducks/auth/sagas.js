@@ -16,7 +16,6 @@ export function* registerSaga(credentials) {
     try {
         yield put(actions.registerRequest(credentials));
         const response = yield call(services.register, credentials);
-        console.log(response)
         yield put(actions.registerSuccess(response.user));
     } catch (e) {
         yield put(actions.registerError(e.errorCode));

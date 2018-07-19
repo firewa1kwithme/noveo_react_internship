@@ -11,8 +11,6 @@ import Routes from '../constants';
 
 //TODO: с фида на логин
 export default function AppComponent(props) {
-    console.log('**** AppComponent props:')
-    console.log(props)
     return (
         <Router>
             <Switch>

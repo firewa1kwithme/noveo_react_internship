@@ -14,11 +14,3 @@ export function selectLoginInfo(state) {
     }
 }
 
-export function selectArticle(state) {
-    return [
-        state.title,
-        state.content,
-        state.imageUrl,
-        state.createdAt
-    ];
-}

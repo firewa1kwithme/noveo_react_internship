@@ -1,19 +1,8 @@
-export function selectUsername(state) {
-    console.log('selectUsername', state);
+export function selectArticle(state) {
+    // console.log('selectArticle', state);
     if (state !== undefined) {
         return state;
     } else {
-        return '';
+        return {};
     }
-}
-
-export function selectArticle(state) {
-    console.log('selectArticle', state);
-    return [
-        state.title,
-        state.content,
-        state.imageUrl,
-        state.createdAt,
-        state.id
-    ];
 }
