@@ -8,7 +8,7 @@ export function selectUsername(state) {
 
 export function selectLoginInfo(state) {
     if (state !== undefined) {
-        return state.login;
+        return state.auth.login;
     } else {
         return {};
     }

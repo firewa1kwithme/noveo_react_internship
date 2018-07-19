@@ -1,6 +1,6 @@
 import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
 import {ConnectedLoginContainer} from '../containers/LoginContainer';
-import FeedContainer from '../containers/FeedContainer';
+import ConnectedFeedContainer from '../containers/FeedContainer';
 import {ConnectedRegisterContainer} from '../containers/RegisterContainer';
 import NewArticleContainer from '../containers/NewArticleContainer';
 import React from 'react';
@@ -11,12 +11,14 @@ import Routes from '../constants';
 
 //TODO: с фида на логин
 export default function AppComponent(props) {
+    console.log('**** AppComponent props:')
+    console.log(props)
     return (
         <Router>
             <Switch>
                 <AuthLayoutComponent path={Routes.LOGIN} component={ConnectedLoginContainer}
                     isAuthenticated={props.isAuthenticated} />
-                <CommonLayoutComponent path={Routes.FEED} component={FeedContainer}
+                <CommonLayoutComponent path={Routes.FEED} component={ConnectedFeedContainer}
                     isAuthenticated={props.isAuthenticated}/>
                 <AuthLayoutComponent path={Routes.REGISTER} component={ConnectedRegisterContainer}
                     isAuthenticated={props.isAuthenticated}/>

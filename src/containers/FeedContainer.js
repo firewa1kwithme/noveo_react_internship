@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import FeedComponent from '../components/feed/FeedComponent';
+import {selectLoginInfo} from '../ducks/auth/selectors';
+import {connect} from 'react-redux';
 
 function fetchArticles() {
     return [
@@ -60,9 +62,10 @@ function fetchArticles() {
     ];
 }
 
-export default class FeedContainer extends Component {
+class FeedContainer extends Component {
     constructor(props) {
         super(props);
+        console.log('!!!!feedContainer')
         this.state = {
             articles: []
         };
@@ -81,3 +84,9 @@ export default class FeedContainer extends Component {
     }
 
 }
+
+export default connect((state) => {
+    return {
+        loginInfo: selectLoginInfo(state)
+    };
+})(FeedContainer);

@@ -22,3 +22,4 @@ export function* registerSaga(credentials) {
         yield put(actions.registerError(e.errorCode));
     }
 }
+

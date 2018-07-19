@@ -4,7 +4,13 @@ import actionTypes from './action-types';
 // TODO: тут написать из чего состоит изаутентификэйтед, эррор, объект ЮЗЕРА
 // };
 //это же феч артиклз???
-function articleFunction(state = '', action) {
+let initialState = {
+    articlesInfo: {
+        allArticles: []
+    }
+}
+
+function articleReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.newArticleSuccess:
         case actionTypes.singleArticleSuccess:
@@ -20,4 +26,4 @@ function articleFunction(state = '', action) {
 
 }
 
-export default articleFunction;
+export default articleReducer;
