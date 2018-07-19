@@ -44,6 +44,7 @@ class LoginComponent extends Component {
                             name='password'/></p>
                     </label>
                     <p><input type='submit' value='Submit' className={styles.submitButton}/></p>
+                    <p>{this.props.error}</p>
                 </form>
                 <p onClick={this.redirectRegister}> Нет аккаунта? </p>
             </Fragment>

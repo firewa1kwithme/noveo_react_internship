@@ -1,4 +1,4 @@
-import request from './helpers/request';
+import request from '../../helpers/request';
 
 /**
  * @typedef {Object} UserCredentials
@@ -12,6 +12,7 @@ export default {
      * @return {Promise.<Object>}
      */
     login(credentials) {
+        console.log('!!!!!services login called')
         return request.post('/login', credentials);
     },
 

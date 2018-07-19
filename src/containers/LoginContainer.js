@@ -2,24 +2,24 @@ import React, {Component} from 'react';
 import LoginComponent from '../components/login/LoginComponent.js';
 import actions from '../ducks/auth/actions';
 import {connect} from 'react-redux';
-import {selectUsername} from '../selectors';
+import {selectLoginInfo} from '../ducks/auth/selectors';
 
 class LoginContainer extends Component {
-    login = ({login, password}) => {
-        console.log('Form parameters: ', login, password);
+    loginFunction = ({login, password}) => {
+        // console.log('**** loginFunction. Form parameters: ', login, password);
         this.props.onLogin(login, password);
     };
 
     render() {
         return (
-            <LoginComponent loginFunction={this.login}/>
+            <LoginComponent loginFunction={this.loginFunction} error={this.props.loginInfo.error}/>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        username: selectUsername(state)
+        loginInfo: selectLoginInfo(state)
     };
 }
 

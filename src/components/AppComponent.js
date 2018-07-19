@@ -10,7 +10,7 @@ import CommonLayoutComponent from './layouts/common/CommonLayoutComponent';
 import Routes from '../constants';
 
 //TODO: с фида на логин
-export default function AppComponent(props) {console.log('AppComponent', props);
+export default function AppComponent(props) {
     return (
         <Router>
             <Switch>

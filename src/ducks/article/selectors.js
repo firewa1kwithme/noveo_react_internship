@@ -8,10 +8,12 @@ export function selectUsername(state) {
 }
 
 export function selectArticle(state) {
+    console.log('selectArticle', state);
     return [
         state.title,
         state.content,
         state.imageUrl,
-        state.createdAt
+        state.createdAt,
+        state.id
     ];
 }

@@ -7,7 +7,8 @@ export default {
     loginAction(username, password) {
         return {
             type: actionTypes.login,
-            username, password
+            username,
+            password
         };
     },
     loginRequest(credentials) {
@@ -16,10 +17,10 @@ export default {
             credentials
         };
     },
-    loginSuccess(username) {
+    loginSuccess(user) {
         return {
             type: actionTypes.loginSuccess,
-            username
+            user
         };
     },
     loginError(error) {
@@ -35,8 +36,9 @@ export default {
     },
     registerAction(username, password) {
         return {
-            type: actionTypes.registerRequest,
-            username, password
+            type: actionTypes.register,
+            username,
+            password
         };
     },
     registerRequest(credentials) {
@@ -45,10 +47,10 @@ export default {
             credentials
         };
     },
-    registerSuccess(username) {
+    registerSuccess(user) {
         return {
             type: actionTypes.registerSuccess,
-            username
+            user
         };
     },
     registerError(error) {

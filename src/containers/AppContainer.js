@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {selectUsername} from '../selectors';
+import {selectLoginInfo} from '../ducks/auth/selectors';
 import AppComponent from '../components/AppComponent.js';
 
 class AppContainer extends Component {
@@ -8,18 +8,14 @@ class AppContainer extends Component {
         super(props);
     }
     render () {
-        console.log(this.props);
         return (
-            <AppComponent isAuthenticated={this.props.username !== ''}/>
+            <AppComponent isAuthenticated={this.props.login.isAuthenticated} error={this.props.login.error}/>
         );
     }
 }
 
-
-function mapStateToProps(state) {
+export const ConnectedAppContainer = connect((state) => {
     return {
-        username: selectUsername(state)
+        login: selectLoginInfo(state)
     };
-}
-
-export const ConnectedAppContainer = connect(mapStateToProps)(AppContainer);
+})(AppContainer);

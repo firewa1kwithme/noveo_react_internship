@@ -3,16 +3,44 @@ import actionTypes from './action-types';
 // const initialState = {
 // TODO: тут написать из чего состоит изаутентификэйтед, эррор, объект ЮЗЕРА
 // };
+let initialState = {
+    login: {
+        user: undefined,
+        isAuthenticated: false,
+        error: undefined
+    }
+}
 
-function authFunction(state = '', action) {
+function authFunction(state = initialState, action) {
     switch (action.type) {
         case actionTypes.registerSuccess:
         case actionTypes.loginSuccess:
-            return `${action.username}`;
+            return {
+                ...state,
+                login: {
+                    user: action.user,
+                    isAuthenticated: true,
+                    error: undefined
+                }
+            }
         case actionTypes.logout:
-            return '';
+            return {
+                ...state,
+                login: {
+                    user: undefined,
+                    isAuthenticated: false,
+                    error: undefined
+                }
+            }
         case actionTypes.loginError:
-            return action.error;
+            return {
+                ...state,
+                login: {
+                    user: undefined,
+                    isAuthenticated: false,
+                    error: action.error
+                }
+            }
         default:
             return state;
     }
