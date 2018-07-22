@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import FeedComponent from '../components/feed/FeedComponent';
 import {selectLoginInfo} from '../ducks/auth/selectors';
-import {selectArticle} from '../ducks/article/selectors';
+import {selectArticles} from '../ducks/article/selectors';
 import {connect} from 'react-redux';
 import actions from '../ducks/article/actions';
 
@@ -79,7 +79,7 @@ class FeedContainer extends Component {
 
 export default connect((state) => {
     return {
-        allArticles: selectArticle(state)
+        allArticles: selectArticles(state)
     };
 },
 (dispatch) => {

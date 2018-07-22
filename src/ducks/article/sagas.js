@@ -17,6 +17,7 @@ export function* allArticlesSaga(articles) {
     try {
         yield put(actions.allArticlesRequest(articles));
         const response = yield call(services.fetchArticles, 10, 0);
+        console.log(response)
         yield put(actions.allArticlesSuccess(response.articles));
     } catch (e) {
         yield put(actions.allArticlesError(e));

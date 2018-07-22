@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import ArticleOverviewComponent from '../components/articleoverview/ArticleOverviewComponent';
+import {connect} from 'react-redux';
+import {selectArticles} from '../ducks/article/selectors';
+import actions from '../ducks/article/actions';
 
 //TODO: сократить
-export default class ArticleOverviewContainer extends Component {
+class ArticleOverviewContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,10 +34,23 @@ export default class ArticleOverviewContainer extends Component {
         });
     }
     render() {
+        let currentArticle = {}
+        this.props.allArticles.forEach((article) => {
+            if (article.id === parseInt(this.props.match.params.articleId)) {
+                currentArticle = article;
+            }
+        });
+        console.log(currentArticle);
         return (
-            <ArticleOverviewComponent {...this.state.article}/>
+            <ArticleOverviewComponent {...currentArticle}/>
         );
     }
 }
+
+export const ConnectedArticleOverviewContainer = connect((state) => {
+    return {
+        allArticles: selectArticles(state)
+    };
+})(ArticleOverviewContainer);
 
 

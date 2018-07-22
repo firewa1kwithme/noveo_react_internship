@@ -1,4 +1,4 @@
-import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
+import {ConnectedArticleOverviewContainer} from '../containers/ArticleOverviewContainer';
 import {ConnectedLoginContainer} from '../containers/LoginContainer';
 import ConnectedFeedContainer from '../containers/FeedContainer';
 import {ConnectedRegisterContainer} from '../containers/RegisterContainer';
@@ -20,7 +20,7 @@ export default function AppComponent(props) {
                     isAuthenticated={props.isAuthenticated}/>
                 <AuthLayoutComponent path={Routes.REGISTER} component={ConnectedRegisterContainer}
                     isAuthenticated={props.isAuthenticated}/>
-                <CommonLayoutComponent path='/article/:id' component={ArticleOverviewContainer}
+                <CommonLayoutComponent path='/article/:articleId' component={ConnectedArticleOverviewContainer}
                     isAuthenticated={props.isAuthenticated}/>
                 <CommonLayoutComponent path={Routes.NEW} component={ConnectedNewArticleContainer}
                     isAuthenticated={props.isAuthenticated}/>
