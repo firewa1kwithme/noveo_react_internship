@@ -2,7 +2,7 @@ import ArticleOverviewContainer from '../containers/ArticleOverviewContainer';
 import {ConnectedLoginContainer} from '../containers/LoginContainer';
 import ConnectedFeedContainer from '../containers/FeedContainer';
 import {ConnectedRegisterContainer} from '../containers/RegisterContainer';
-import NewArticleContainer from '../containers/NewArticleContainer';
+import {ConnectedNewArticleContainer} from '../containers/ConnectedNewArticleContainer';
 import React from 'react';
 import {BrowserRouter as Router, Switch, Redirect} from 'react-router-dom';
 import AuthLayoutComponent from './layouts/auth/AuthLayoutComponent';
@@ -22,7 +22,7 @@ export default function AppComponent(props) {
                     isAuthenticated={props.isAuthenticated}/>
                 <CommonLayoutComponent path='/article/:id' component={ArticleOverviewContainer}
                     isAuthenticated={props.isAuthenticated}/>
-                <CommonLayoutComponent path={Routes.NEW} component={NewArticleContainer}
+                <CommonLayoutComponent path={Routes.NEW} component={ConnectedNewArticleContainer}
                     isAuthenticated={props.isAuthenticated}/>
                 <Redirect from='/' to='/feed'/>
             </Switch>

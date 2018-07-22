@@ -14,7 +14,7 @@ function articleReducer(state = initialState, action) {
             return {
                 ...state,
                 articlesInfo: {
-                    allArticles: action
+                    allArticles: action.articles
                 }
             };
         case actionTypes.newArticleError:

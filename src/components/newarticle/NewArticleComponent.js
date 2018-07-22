@@ -10,7 +10,7 @@ import styles from './NewArticleComponent.scss';
 class NewArticleComponent extends Component {
     constructor(props) {
         super(props);
-        this.state = {title: '', content: '', imageUrl: '', createdAt: ''};
+        this.state = {title: '', content: '', imageUrl: ''};
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
@@ -27,9 +27,7 @@ class NewArticleComponent extends Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        let now = new Date();
-        this.props.createdAt = now.toLocaleDateString();
-        this.props.newArticleFunction(this.state);
+        this.props.newArticleFunction(this.state.title, this.state.content, this.state.imageUrl);
     }
 
     render() {

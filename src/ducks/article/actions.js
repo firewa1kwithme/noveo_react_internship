@@ -2,10 +2,12 @@ import actionTypes from './action-types';
 
 export default {
 
-    newArticleAction(article) {
+    newArticleAction(title, content, imageUrl) {
         return {
             type: actionTypes.newArticle,
-            article
+            title,
+            content,
+            imageUrl
         };
     },
     newArticleRequest(article) {
@@ -17,7 +19,6 @@ export default {
     newArticleSuccess(username) {
         return {
             type: actionTypes.newArticleSuccess,
-            username
         };
     },
     newArticleError(error) {

@@ -1,5 +1,3 @@
-import services from './ducks/auth/services';
-import actions from './ducks/auth/actions';
 import authActionTypes from './ducks/auth/action-types';
 import articleActionTypes from './ducks/article/action-types';
 import {call, all, takeLatest} from 'redux-saga/effects';
@@ -25,6 +23,15 @@ function* showAllArticlesSaga(action) {
         articles: action.articles
     });
 }
+
+function* createArticleSaga(action) {
+    yield call(newArticleSaga, {
+        title: action.title,
+        content: action.content,
+        imageUrl: action.imageUrl
+    });
+}
+
 /*function* createNewArticleSaga(action) {
     yield call(newArticleSaga, {
         article: action.article
@@ -39,7 +46,8 @@ export default function* () {
     yield all([
         takeLatest(authActionTypes.login, loginUserSaga),
         takeLatest(authActionTypes.register, registerUserSaga),
-        takeLatest(articleActionTypes.fetchAllArticles, showAllArticlesSaga)
+        takeLatest(articleActionTypes.fetchAllArticles, showAllArticlesSaga),
+        takeLatest(articleActionTypes.newArticle, createArticleSaga)
 /*        takeLatest(authActionTypes.register, showAllArticlesSaga),
         takeLatest(authActionTypes.register, showSingleArticlesSaga)*/
     ]);
