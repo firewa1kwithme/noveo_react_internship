@@ -39,7 +39,7 @@ export default function* () {
     yield all([
         takeLatest(authActionTypes.login, loginUserSaga),
         takeLatest(authActionTypes.register, registerUserSaga),
-        takeLatest(articleActionTypes.allArticles, showAllArticlesSaga)
+        takeLatest(articleActionTypes.fetchAllArticles, showAllArticlesSaga)
 /*        takeLatest(authActionTypes.register, showAllArticlesSaga),
         takeLatest(authActionTypes.register, showSingleArticlesSaga)*/
     ]);

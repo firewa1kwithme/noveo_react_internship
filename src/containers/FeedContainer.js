@@ -73,25 +73,25 @@ class FeedContainer extends Component {
     }
 
     componentDidMount() {
-        this.props.allArticlesAction();
+        this.props.fetchAllArticles();
     }
 
     render() {
         return (
             <FeedComponent articles={this.state.articles}/>
         );
-    }
+}
 
 }
 
 export default connect((state) => {
-        return {
-            loginInfo: selectLoginInfo(state),
-            articles: selectArticle(state)
-        };
-    },
-    (dispatch) => {
-        return {
-            allArticlesAction: dispatch(actions.allArticlesAction),
-        };
-    })(FeedContainer);
+    return {
+        loginInfo: selectLoginInfo(state),
+        articles: selectArticle(state)
+    };
+},
+(dispatch) => {
+    return {
+        fetchAllArticles: () => (dispatch(actions.fetchAllArticles()))
+    };
+})(FeedContainer);

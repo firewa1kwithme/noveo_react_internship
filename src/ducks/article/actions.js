@@ -26,9 +26,9 @@ export default {
             error
         };
     },
-    allArticlesAction(articles) {
+    fetchAllArticles(articles) {
         return {
-            type: actionTypes.allArticles,
+            type: actionTypes.fetchAllArticles,
             articles
         };
     },
