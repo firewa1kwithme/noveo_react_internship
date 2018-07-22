@@ -65,20 +65,13 @@ import actions from '../ducks/article/actions';
 // }
 
 class FeedContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            articles: []
-        };
-    }
-
     componentDidMount() {
         this.props.fetchAllArticles();
     }
 
     render() {
         return (
-            <FeedComponent articles={this.state.articles}/>
+            <FeedComponent articles={this.props.allArticles}/>
         );
 }
 
@@ -86,8 +79,7 @@ class FeedContainer extends Component {
 
 export default connect((state) => {
     return {
-        loginInfo: selectLoginInfo(state),
-        articles: selectArticle(state)
+        allArticles: selectArticle(state)
     };
 },
 (dispatch) => {

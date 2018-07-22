@@ -1,7 +1,6 @@
 export function selectArticle(state) {
-    // console.log('selectArticle', state);
     if (state !== undefined) {
-        return state;
+        return state.article.articlesInfo.allArticles;
     } else {
         return {};
     }
