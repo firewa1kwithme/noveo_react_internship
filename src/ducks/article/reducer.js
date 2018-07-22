@@ -9,6 +9,12 @@ const initialState = {
 function articleReducer(state = initialState, action) {
     switch (action.type) {
         case actionTypes.newArticleSuccess:
+            return {
+                ...state,
+                articlesInfo: {
+                    allArticles: [...state.articlesInfo, action.article]
+                }
+            };
         case actionTypes.singleArticleSuccess:
         case actionTypes.allArticlesSuccess:
             return {

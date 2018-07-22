@@ -1,8 +1,9 @@
 import authActionTypes from './ducks/auth/action-types';
 import articleActionTypes from './ducks/article/action-types';
-import {call, all, takeLatest} from 'redux-saga/effects';
+import {call, all, takeLatest, put} from 'redux-saga/effects';
 import {loginSaga, registerSaga} from './ducks/auth/sagas';
 import {allArticlesSaga, newArticleSaga, singleArticleSaga} from './ducks/article/sagas';
+import {push} from 'react-router-redux';
 
 //TODO: заменить на credentials???
 function* loginUserSaga(action) {
@@ -24,12 +25,18 @@ function* showAllArticlesSaga(action) {
     });
 }
 
+function* changeRouteSaga(location) {
+    yield put(push(location));
+}
+
 function* createArticleSaga(action) {
-    yield call(newArticleSaga, {
+/*    const err = yield call(newArticleSaga, {
         title: action.title,
         content: action.content,
         imageUrl: action.imageUrl
-    });
+    });*/
+
+    yield call(changeRouteSaga, '/feed');
 }
 
 /*function* createNewArticleSaga(action) {
