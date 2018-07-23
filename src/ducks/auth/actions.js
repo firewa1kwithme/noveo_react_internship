@@ -1,7 +1,5 @@
 import actionTypes from './action-types';
 
-//TODO: добавить из аутентификатед
-//TODO: поменять юзернейм на юзер
 export default {
 
     loginAction(username, password) {

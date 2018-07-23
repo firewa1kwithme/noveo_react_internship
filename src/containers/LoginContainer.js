@@ -6,7 +6,6 @@ import {selectLoginInfo} from '../ducks/auth/selectors';
 
 class LoginContainer extends Component {
     loginFunction = ({login, password}) => {
-        // console.log('**** loginFunction. Form parameters: ', login, password);
         this.props.onLogin(login, password);
     };
 

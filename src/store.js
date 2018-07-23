@@ -1,22 +1,26 @@
-import {createStore, applyMiddleware} from 'redux';
-import {combineReducers} from 'redux';
+import {createStore, applyMiddleware, combineReducers} from 'redux';
 import authReducer from './ducks/auth/reducer';
-import articleReducer from './ducks/article/reducer';
+import articlesReducer from './ducks/article/reducer';
 import {composeWithDevTools} from 'redux-devtools-extension/developmentOnly';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './RootSaga';
-//TODO: тут можно еще заадть инишл стэйт объект
+import { createBrowserHistory } from 'history';
+import { connectRouter, routerMiddleware } from 'connected-react-router';
 
+const history = createBrowserHistory();
 const sagaMiddleware = createSagaMiddleware();
-const CombinedReucer = new combineReducers({
+const CombinedReducer = combineReducers({
     auth: authReducer,
-    article: articleReducer
-})
+    articles: articlesReducer
+});
 const store = createStore(
-    CombinedReucer,
+    connectRouter(history)(CombinedReducer),
     composeWithDevTools(
-        applyMiddleware(sagaMiddleware)
+        applyMiddleware(
+            routerMiddleware(history),
+            sagaMiddleware
+        )
     )
 );
 sagaMiddleware.run(rootSaga);
-export {store};
+export {store, history};

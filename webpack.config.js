@@ -28,7 +28,8 @@ const config = {
      * https://webpack.js.org/concepts/entry-points/
      */
     entry: [
-        path.resolve(srcFolder, 'index.js')
+        path.resolve(srcFolder, 'index.js'),
+        path.resolve(srcFolder, 'style.scss')
     ],
 
     /**

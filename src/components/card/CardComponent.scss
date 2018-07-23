@@ -1,22 +1,20 @@
 .article {
-    //border: 2px solid gray;
-    //padding: 10px 10px 10px 10px;
     margin: 10px 5px 10px 5px;
     height: 400px;
     width: 400px;
     position: relative;
     background-color: #ededed;
 
+
     h1 {
         font-size: 30px;
         line-height: 30px;
-        //margin-bottom: 2px;
         padding: 10px 10px 10px 10px;
         text-align: center;
     }
     img {
         max-width: 300px;
-        max-height: 300px;
+        max-height: 200px;
         display: block;
         margin: 0 auto;
         padding: 10px 10px 10px 10px;
@@ -49,4 +47,7 @@ p.cardArticleContent {
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 10px 50px 10px 50px;
+}
+.article:hover {
+    cursor: pointer;
 }

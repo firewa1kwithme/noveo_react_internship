@@ -16,9 +16,9 @@ export default {
             article
         };
     },
-    newArticleSuccess(username) {
+    newArticleSuccess() {
         return {
-            type: actionTypes.newArticleSuccess,
+            type: actionTypes.newArticleSuccess
         };
     },
     newArticleError(error) {
@@ -50,7 +50,7 @@ export default {
             type: actionTypes.allArticlesError,
             error
         };
-    },
+    }/*,
     singleArticleAction(article) {
         return {
             type: actionTypes.singleArticle,
@@ -74,6 +74,6 @@ export default {
             type: actionTypes.singleArticleError,
             error
         };
-    }
+    }*/
 };
 

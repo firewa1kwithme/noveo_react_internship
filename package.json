@@ -4,7 +4,7 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "start:dev": "set NODE_ENV=development webpack-dev-server --progress",
+        "start:dev": "NODE_ENV=development webpack-dev-server --progress",
         "start:prod": "NODE_ENV=production webpack --progress",
         "analyze:bundle": "NODE_ENV=production webpack --progress --profile --json > stats.json && mv stats.json public/ && webpack-bundle-analyzer --exclude /assets/ -s gzip public/stats.json",
         "analyze:eslint": "./node_modules/.bin/eslint *.js src/**/*.js",
@@ -44,6 +44,7 @@
         "axios": "^0.18.0",
         "bootstrap": "^4.1.1",
         "classnames": "^2.2.5",
+        "connected-react-router": "^4.3.0",
         "history": "^4.7.2",
         "humps": "^2.0.1",
         "moment": "^2.22.2",

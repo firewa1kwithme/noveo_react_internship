@@ -1,10 +1,51 @@
 .article {
-    width: 500px;
+    width: 1000px;
     margin: auto;
+    position: relative;
     text-align: justify;
     padding: 10px;
+    background-color: #ededed;
     img {
-        width: 500px;
+        //width: 500px;
+        max-width: 500px;
+        max-height: 500px;
+        display: block;
+        margin: 0 auto;
+        padding: 10px 10px 10px 10px;
     }
 
+    p {
+        padding: 10px 50px 10px 50px;
+    }
+
+    h1 {
+            font-size: 30px;
+            line-height: 30px;
+            padding: 10px 10px 10px 10px;
+            text-align: center;
+    }
+
+    .footerArticle {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-flow: row wrap;
+        flex: 1;
+        padding: 10px 10px 10px 10px;
+        font-style: italic;
+
+        .username {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            padding: 10px 10px 10px 10px;
+        }
+        .createdAt {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            padding: 10px 10px 10px 10px;
+        }
+    }
 }
+

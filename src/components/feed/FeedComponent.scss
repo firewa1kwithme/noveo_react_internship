@@ -1,16 +1,45 @@
+@import '~assets/scss/variables';
+
 .cardFeed {
     display: flex;
     align-items: center;
-    //justify-content: space-around;
     flex-flow: row wrap;
     flex: 1;
-    //padding-top: 50px;
     padding-left: 50px;
     padding-right: 50px;
+    position: relative;
 
-    :hover {
-        background-color: #cacaca;
+    .addButton {
+        position: fixed;
+        right: 30px;
+        bottom: 30px;
+
+        display: flex;
+
+        width: 60px;
+        height: 60px;
+
         cursor: pointer;
+        transition: background-color 0.3s;
+
+        border-radius: 50%;
+        background-color: $primary;
+        box-shadow: 2px 2px 4px 0 rgba(50, 50, 50, 0.5);
+
+        align-items: center;
+        justify-content: center;
+
+        .plusSign {
+            width: 25px;
+            height: 25px;
+
+            fill: white;
+        }
+
+        &:hover {
+            background-color: darken($primary, 10);
+        }
     }
 
 }
+

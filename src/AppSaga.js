@@ -2,10 +2,10 @@ import authActionTypes from './ducks/auth/action-types';
 import articleActionTypes from './ducks/article/action-types';
 import {call, all, takeLatest, put} from 'redux-saga/effects';
 import {loginSaga, registerSaga} from './ducks/auth/sagas';
-import {allArticlesSaga, newArticleSaga, singleArticleSaga} from './ducks/article/sagas';
-import {push} from 'react-router-redux';
+import {allArticlesSaga, newArticleSaga} from './ducks/article/sagas';
+import {push} from 'connected-react-router';
+import Routes from './constants';
 
-//TODO: заменить на credentials???
 function* loginUserSaga(action) {
     yield call(loginSaga, {
         username: action.username,
@@ -30,32 +30,20 @@ function* changeRouteSaga(location) {
 }
 
 function* createArticleSaga(action) {
-/*    const err = yield call(newArticleSaga, {
+    yield call(newArticleSaga, {
         title: action.title,
         content: action.content,
         imageUrl: action.imageUrl
-    });*/
+    });
 
-    yield call(changeRouteSaga, '/feed');
+    yield call(changeRouteSaga, Routes.FEED);
 }
 
-/*function* createNewArticleSaga(action) {
-    yield call(newArticleSaga, {
-        article: action.article
-    });
-}
-function* showSingleArticlesSaga(action) {
-    yield call(singleArticleSaga, {
-        article: action.article
-    });
-}*/
 export default function* () {
     yield all([
         takeLatest(authActionTypes.login, loginUserSaga),
         takeLatest(authActionTypes.register, registerUserSaga),
         takeLatest(articleActionTypes.fetchAllArticles, showAllArticlesSaga),
         takeLatest(articleActionTypes.newArticle, createArticleSaga)
-/*        takeLatest(authActionTypes.register, showAllArticlesSaga),
-        takeLatest(authActionTypes.register, showSingleArticlesSaga)*/
     ]);
 }

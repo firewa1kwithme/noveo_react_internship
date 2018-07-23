@@ -3,10 +3,6 @@ import PropTypes from 'prop-types';
 import {withRouter} from 'react-router-dom';
 import styles from './NewArticleComponent.scss';
 
-//TODO: создает объект article или просто передает некоторые поля в контейнер?
-//TODO: При нажатии на сабмит добавляется юзер автоматически
-//TODO: названия полей как подсказки
-//TODO: как добавить в фетч артиклз
 class NewArticleComponent extends Component {
     constructor(props) {
         super(props);

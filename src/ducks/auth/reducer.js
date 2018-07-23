@@ -1,15 +1,12 @@
 import actionTypes from './action-types';
 
-// const initialState = {
-// TODO: тут написать из чего состоит изаутентификэйтед, эррор, объект ЮЗЕРА
-// };
 let initialState = {
     login: {
         user: undefined,
         isAuthenticated: false,
         error: undefined
     }
-}
+};
 
 function authFunction(state = initialState, action) {
     switch (action.type) {
@@ -22,7 +19,7 @@ function authFunction(state = initialState, action) {
                     isAuthenticated: true,
                     error: undefined
                 }
-            }
+            };
         case actionTypes.logout:
             return {
                 ...state,
@@ -31,7 +28,7 @@ function authFunction(state = initialState, action) {
                     isAuthenticated: false,
                     error: undefined
                 }
-            }
+            };
         case actionTypes.loginError:
             return {
                 ...state,
@@ -40,7 +37,7 @@ function authFunction(state = initialState, action) {
                     isAuthenticated: false,
                     error: action.error
                 }
-            }
+            };
         default:
             return state;
     }

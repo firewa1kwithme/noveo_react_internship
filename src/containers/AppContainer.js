@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {selectLoginInfo} from '../ducks/auth/selectors';
 import AppComponent from '../components/AppComponent.js';
+import {compose} from 'redux';
+import {withRouter} from 'react-router-dom';
 
 class AppContainer extends Component {
     constructor(props) {
@@ -14,8 +16,8 @@ class AppContainer extends Component {
     }
 }
 
-export const ConnectedAppContainer = connect((state) => {
+export const ConnectedAppContainer = compose(withRouter, connect((state) => {
     return {
         login: selectLoginInfo(state)
     };
-})(AppContainer);
+}))(AppContainer);

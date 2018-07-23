@@ -1,27 +1,22 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styles from './NavBarComponent.scss';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
+import Routes from '../../constants';
 
 function NavBarComponent (props) {
 
-    const redirectNewArticle = () => {
-        props.history.push('/new');
-    };
-    const redirectFeed = () => {
-        props.history.push('/feed');
-    };
     const condition = props.username!=='';
     return (
         <div className={styles.navbar}>
-            <h1 onClick={redirectFeed}>Перемоем косточки?</h1>
+            <Link to={Routes.FEED}><h1>Перемоем косточки?</h1></Link>
             {condition
                 ? <Fragment>
                     <p>{props.username}</p>
                     <button onClick={props.onLogout}> Выйти </button>
                 </Fragment>
                 : <button onClick={props.onLogin} > Войти </button>}
-            <p onClick={redirectNewArticle}> Жми КЛАСС </p>
+            {/*<Link to={Routes.NEW} className={styles.zhmi}><h1>Жми КЛАСС</h1></Link>*/}
         </div>
     );
 }

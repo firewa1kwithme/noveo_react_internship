@@ -1,30 +1,19 @@
 import actionTypes from './action-types';
 
 const initialState = {
-    articlesInfo: {
-        allArticles: []
-    }
+    articles: []
 };
 
-function articleReducer(state = initialState, action) {
+function articlesReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.newArticleSuccess:
-            return {
-                ...state,
-                articlesInfo: {
-                    allArticles: [...state.articlesInfo, action.article]
-                }
-            };
-        case actionTypes.singleArticleSuccess:
+        // case actionTypes.singleArticleSuccess:
         case actionTypes.allArticlesSuccess:
             return {
                 ...state,
-                articlesInfo: {
-                    allArticles: action.articles
-                }
+                articles: action.articles
             };
         case actionTypes.newArticleError:
-        case actionTypes.singleArticleError:
+        // case actionTypes.singleArticleError:
         case actionTypes.allArticlesError:
             return action.error;
         default:
@@ -33,4 +22,4 @@ function articleReducer(state = initialState, action) {
 
 }
 
-export default articleReducer;
+export default articlesReducer;

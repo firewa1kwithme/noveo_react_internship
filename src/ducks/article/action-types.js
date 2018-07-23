@@ -7,10 +7,10 @@ const actionTypes = {
     allArticlesRequest: 'ALL_ARTICLES_REQUEST',
     allArticlesSuccess: 'ALL_ARTICLES_SUCCESS',
     allArticlesError: 'ALL_ARTICLES_ERROR',
-    singleArticle: 'SINGLE_ARTICLE',
+    singleArticle: 'SINGLE_ARTICLE'/*,
     singleArticleRequest: 'SINGLE_ARTICLE_REQUEST',
     singleArticleSuccess: 'SINGLE_ARTICLE_SUCCESS',
-    singleArticleError: 'SINGLE_ARTICLE_ERROR'
+    singleArticleError: 'SINGLE_ARTICLE_ERROR'*/
 };
 
 export default actionTypes;

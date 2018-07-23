@@ -3,12 +3,11 @@ import React, {Fragment} from 'react';
 import {ConnectedNavBarContainer} from '../../../containers/NavBarContainer';
 import Routes from '../../../constants';
 
-
-//TODO: выйти в навбаре если залогинен
 export default function CommonLayoutComponent({component: Component, isAuthenticated, ...restProps}) {
     if (!isAuthenticated) {
         return <Redirect to={Routes.LOGIN}/>;
     }
+
     return (
         <Route {...restProps} render={props => {
             return (
