@@ -50,30 +50,6 @@ export default {
             type: actionTypes.allArticlesError,
             error
         };
-    }/*,
-    singleArticleAction(article) {
-        return {
-            type: actionTypes.singleArticle,
-            article
-        };
-    },
-    singleArticleRequest(article) {
-        return {
-            type: actionTypes.singleArticleRequest,
-            article
-        };
-    },
-    singleArticleSuccess(article) {
-        return {
-            type: actionTypes.singleArticleSuccess,
-            article
-        };
-    },
-    singleArticleError(error) {
-        return {
-            type: actionTypes.singleArticleError,
-            error
-        };
-    }*/
+    }
 };
 

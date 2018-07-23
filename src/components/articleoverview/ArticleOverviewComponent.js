@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import styles from './ArticleOverviewComponent.scss';
+import {formatDate} from '../../helpers/dateFormat';
 
 export default class ArticleOverviewComponent extends Component {
     static propTypes = {
@@ -18,7 +19,7 @@ export default class ArticleOverviewComponent extends Component {
                 <p className={styles.cardArticleContent}>{this.props.content}</p>
                 <img src={this.props.imageUrl}/>
                 <div className={styles.footerArticle}>
-                    <div className={styles.createdAt}>{this.props.createdAt}</div>
+                    <div className={styles.createdAt}>{formatDate(this.props.createdAt)}</div>
                     <div className={styles.username}>@{this.props.user.username}</div>
                 </div>
             </div>

@@ -5,8 +5,8 @@
     text-align: justify;
     padding: 10px;
     background-color: #ededed;
+
     img {
-        //width: 500px;
         max-width: 500px;
         max-height: 500px;
         display: block;
@@ -15,6 +15,7 @@
     }
 
     p {
+        color: #545454;
         padding: 10px 50px 10px 50px;
     }
 
@@ -38,13 +39,13 @@
             position: absolute;
             left: 0;
             bottom: 0;
-            padding: 10px 10px 10px 10px;
+            padding: 10px 50px 10px 50px;
         }
         .createdAt {
             position: absolute;
             right: 0;
             bottom: 0;
-            padding: 10px 10px 10px 10px;
+            padding: 10px 50px 10px 50px;
         }
     }
 }

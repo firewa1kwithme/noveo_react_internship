@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styles from './LoginComponent.scss';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
+import Routes from '../../constants';
 
 class LoginComponent extends Component {
     constructor(props) {
@@ -25,10 +26,6 @@ class LoginComponent extends Component {
         this.props.loginFunction(this.state);
     }
 
-    redirectRegister = () => {
-        this.props.history.push('/register');
-    };
-
     render() {
         return (
             <Fragment>
@@ -46,7 +43,9 @@ class LoginComponent extends Component {
                     <p><input type='submit' value='Submit' className={styles.submitButton}/></p>
                     <p>{this.props.error}</p>
                 </form>
-                <p onClick={this.redirectRegister} className={styles.redirectRegister}> Нет аккаунта? </p>
+                <Link to={Routes.REGISTER}>
+                    <p className={styles.redirectRegister}> Нет аккаунта? </p>
+                </Link>
             </Fragment>
         );
     }

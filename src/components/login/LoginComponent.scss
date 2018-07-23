@@ -7,4 +7,10 @@
 }
 .redirectRegister {
     text-align: center;
+    p {
+        color: #cacaca;
+        :hover {
+            color: #545454;
+        }
+    }
 }

@@ -9,14 +9,13 @@ function NavBarComponent (props) {
     const condition = props.username!=='';
     return (
         <div className={styles.navbar}>
-            <Link to={Routes.FEED}><h1>Перемоем косточки?</h1></Link>
+            <Link to={Routes.FEED}><h1>First react-redux blog</h1></Link>
             {condition
                 ? <Fragment>
                     <p>{props.username}</p>
                     <button onClick={props.onLogout}> Выйти </button>
                 </Fragment>
                 : <button onClick={props.onLogin} > Войти </button>}
-            {/*<Link to={Routes.NEW} className={styles.zhmi}><h1>Жми КЛАСС</h1></Link>*/}
         </div>
     );
 }

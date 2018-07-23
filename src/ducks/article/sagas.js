@@ -18,7 +18,7 @@ export function* newArticleSaga(article) {
 export function* allArticlesSaga(articles) {
     try {
         yield put(actions.allArticlesRequest(articles));
-        const response = yield call(services.fetchArticles, 10, 0);
+        const response = yield call(services.fetchArticles, 20, 0);
         yield put(actions.allArticlesSuccess(response.articles));
     } catch (e) {
         yield put(actions.allArticlesError(e.errorCode));
@@ -26,13 +26,3 @@ export function* allArticlesSaga(articles) {
     }
 }
 
-// export function* singleArticleSaga(article) {
-//     try {
-//         yield put(actions.singleArticleRequest(article));
-//         const {article} = yield call(services.fetchSingleArticle, article);
-//         yield put(actions.singleArticleSuccess(article));
-//     } catch (e) {
-//         yield put(actions.singleArticleError(e));
-//         return e.statusMessage;
-//     }
-// }

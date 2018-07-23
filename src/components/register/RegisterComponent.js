@@ -1,7 +1,8 @@
 import React, {Component, Fragment} from 'react';
 import PropTypes from 'prop-types';
-import {withRouter} from 'react-router-dom';
+import {withRouter, Link} from 'react-router-dom';
 import styles from './RegisterComponent.scss';
+import Routes from '../../constants';
 
 //TODO: если логин занят, если пароли не совпадают
 class RegisterComponent extends Component {
@@ -23,10 +24,6 @@ class RegisterComponent extends Component {
         event.preventDefault();
         this.props.registerFunction(this.state);
     }
-
-    redirectLogin = () => {
-        this.props.history.push('/login');
-    };
 
     render() {
         return (
@@ -58,7 +55,9 @@ class RegisterComponent extends Component {
                     </label>
                     <p><input type='submit' value='Submit'/></p>
                 </form>
-                <p onClick={this.redirectLogin}> Уже есть аккаунт? </p>
+                <Link to={Routes.LOGIN}>
+                    <p> Уже есть аккаунт? </p>
+                </Link>
             </Fragment>
         );
     }
