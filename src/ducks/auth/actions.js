@@ -37,6 +37,28 @@ export default {
             type: actionTypes.REGISTER_ERROR,
             error
         };
+    },
+    logout() {
+        return {
+            type: actionTypes.LOGOUT
+        };
+    },
+    fetchUserRequest() {
+        return {
+            type: actionTypes.FETCH_USER_REQUEST
+        };
+    },
+    fetchUserSuccess(user) {
+        return {
+            type: actionTypes.FETCH_USER_SUCCESS,
+            user
+        };
+    },
+    fetchUserError(error) {
+        return {
+            type: actionTypes.FETCH_USER_ERROR,
+            error
+        };
     }
 };
 

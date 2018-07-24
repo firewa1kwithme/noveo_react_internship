@@ -4,7 +4,11 @@ const actionTypes = {
     LOGIN_ERROR: '@@auth/LOGIN_ERROR',
     REGISTER_REQUEST: '@@auth/REGISTER_REQUEST',
     REGISTER_SUCCESS: '@@auth/REGISTER_SUCCESS',
-    REGISTER_ERROR: '@@auth/REGISTER_ERROR'
+    REGISTER_ERROR: '@@auth/REGISTER_ERROR',
+    FETCH_USER_REQUEST: '@@auth/FETCH_USER_REQUEST',
+    FETCH_USER_SUCCESS: '@@auth/FETCH_USER_SUCCESS',
+    FETCH_USER_ERROR: '@@auth/FETCH_USER_ERROR',
+    LOGOUT: '@@auth/LOGOUT'
 };
 
 export default actionTypes;

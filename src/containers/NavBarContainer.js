@@ -5,14 +5,6 @@ import actions from '../ducks/app/actions';
 import PropTypes from 'prop-types';
 
 class NavBarContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            user: {
-                username: ''
-            }
-        };
-    }
 
     static propTypes = {
         username: PropTypes.string,

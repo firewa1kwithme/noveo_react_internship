@@ -1,6 +1,7 @@
 import services from './services';
 import actions from './actions';
 import {call, put} from 'redux-saga/effects';
+import {AUTH_TOKEN_KEY} from 'config.js';
 
 export function* loginSaga(credentials) {
     try {
@@ -22,3 +23,17 @@ export function* registerSaga(credentials) {
     }
 }
 
+export function* fetchUserSaga() {
+    try {
+        yield put(actions.fetchUserRequest());
+        const response = yield call(services.fetchUser);
+        yield put(actions.fetchUserSuccess(response.user));
+    } catch (e) {
+        yield put(actions.fetchUserError(e.errorCode));
+    }
+}
+
+export function* logoutSaga() {
+    yield put(actions.logout());
+    window.localStorage.removeItem(AUTH_TOKEN_KEY);
+}

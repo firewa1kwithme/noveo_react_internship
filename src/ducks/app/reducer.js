@@ -6,11 +6,6 @@ let initialState = {
 
 function appFunction(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.LOGOUT:
-            return {
-                ...state,
-                isInit: false
-            };
         case actionTypes.INIT:
             return {
                 ...state,

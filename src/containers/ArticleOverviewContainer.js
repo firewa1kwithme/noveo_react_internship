@@ -5,12 +5,7 @@ import {selectArticles} from '../ducks/article/selectors';
 import PropTypes from 'prop-types';
 
 class ArticleOverviewContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            article: {}
-        };
-    }
+
     static propTypes = {
         articles: PropTypes.array,
         match: PropTypes.object

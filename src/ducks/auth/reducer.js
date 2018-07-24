@@ -2,9 +2,9 @@ import actionTypes from './action-types';
 
 let initialState = {
     login: {
-        user: undefined,
+        user: {},
         isAuthenticated: false,
-        error: undefined
+        error: null
     }
 };
 
@@ -12,24 +12,27 @@ function authFunction(state = initialState, action) {
     switch (action.type) {
         case actionTypes.REGISTER_SUCCESS:
         case actionTypes.LOGIN_SUCCESS:
+        case actionTypes.FETCH_USER_SUCCESS:
             return {
                 ...state,
                 login: {
                     user: action.user,
                     isAuthenticated: true,
-                    error: undefined
+                    error: null
                 }
             };
-        case actionTypes.logout:
+        case actionTypes.LOGOUT:
             return {
                 ...state,
                 login: {
-                    user: undefined,
+                    user: {},
                     isAuthenticated: false,
-                    error: undefined
+                    error: null
                 }
             };
         case actionTypes.LOGIN_ERROR:
+        case actionTypes.FETCH_USER_ERROR:
+        case actionTypes.REGISTER_ERROR:
             return {
                 ...state,
                 login: {
@@ -41,7 +44,6 @@ function authFunction(state = initialState, action) {
         default:
             return state;
     }
-
 }
 
 export default authFunction;
