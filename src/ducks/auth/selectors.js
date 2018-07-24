@@ -1,16 +1,8 @@
-export function selectUsername(state) {
-    if (state !== undefined) {
-        return state;
-    } else {
-        return '';
-    }
+export function selectUser(state) {
+    return state.auth.login.user;
 }
 
 export function selectLoginInfo(state) {
-    if (state !== undefined) {
-        return state.auth.login;
-    } else {
-        return {};
-    }
+    return state.auth.login;
 }
 

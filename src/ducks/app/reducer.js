@@ -1,6 +1,6 @@
 import actionTypes from './action-types';
 
-let initialState = {
+const initialState = {
     isInit: false
 };
 

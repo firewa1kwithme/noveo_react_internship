@@ -3,25 +3,28 @@ import NavBarComponent from '../components/navbar/NavBarComponent.js';
 import {connect} from 'react-redux';
 import actions from '../ducks/app/actions';
 import PropTypes from 'prop-types';
+import {selectUser} from '../ducks/auth/selectors';
 
 class NavBarContainer extends Component {
 
     static propTypes = {
-        username: PropTypes.string,
+        user: PropTypes.object,
         onLogout: PropTypes.func,
         onLogin: PropTypes.func
     };
 
     render() {
         return (
-            <NavBarComponent username={this.props.username} onLogin={this.props.onLogin}
+            <NavBarComponent user={this.props.user} onLogin={this.props.onLogin}
                 onLogout={this.props.onLogout}/>
         );
     }
 }
 
 export default connect(
-    null,
+    (state) => ({
+        user: selectUser(state)
+    }),
     (dispatch) => {
         return {
             onLogin: () => {

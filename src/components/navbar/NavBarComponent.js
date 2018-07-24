@@ -6,13 +6,13 @@ import Routes from '../../constants';
 
 function NavBarComponent (props) {
 
-    const condition = props.username!=='';
+    const condition = props.user.username!=='';
     return (
         <div className={styles.navbar}>
             <Link to={Routes.FEED}><h1>First react-redux blog</h1></Link>
             {condition
                 ? <Fragment>
-                    <p>{props.username}</p>
+                    <p>{props.user.username}</p>
                     <button onClick={props.onLogout}> Выйти </button>
                 </Fragment>
                 : <button onClick={props.onLogin} > Войти </button>}
@@ -21,7 +21,7 @@ function NavBarComponent (props) {
 }
 
 NavBarComponent.propTypes = {
-    username: PropTypes.string,
+    user: PropTypes.object,
     onLogin: PropTypes.func,
     onLogout: PropTypes.func
 };

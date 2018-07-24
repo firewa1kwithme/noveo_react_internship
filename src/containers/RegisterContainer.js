@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import RegisterComponent from '../components/register/RegisterComponent';
 import {connect} from 'react-redux';
 import actions from '../ducks/app/actions';
-import {selectUsername} from '../ducks/auth/selectors';
+import {selectUser} from '../ducks/auth/selectors';
 import PropTypes from 'prop-types';
 
 class RegisterContainer extends Component {
@@ -26,7 +26,7 @@ class RegisterContainer extends Component {
 
 export default connect((state) => {
     return {
-        username: selectUsername(state)
+        username: selectUser(state)
     };
 },
 (dispatch) => {
