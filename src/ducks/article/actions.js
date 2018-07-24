@@ -2,52 +2,38 @@ import actionTypes from './action-types';
 
 export default {
 
-    newArticleAction(title, content, imageUrl) {
-        return {
-            type: actionTypes.newArticle,
-            title,
-            content,
-            imageUrl
-        };
-    },
     newArticleRequest(article) {
         return {
-            type: actionTypes.newArticleRequest,
+            type: actionTypes.NEW_ARTICLE_REQUEST,
             article
         };
     },
     newArticleSuccess() {
         return {
-            type: actionTypes.newArticleSuccess
+            type: actionTypes.NEW_ARTICLE_SUCCESS
         };
     },
     newArticleError(error) {
         return {
-            type: actionTypes.newArticleError,
+            type: actionTypes.NEW_ARTICLE_ERROR,
             error
-        };
-    },
-    fetchAllArticles(articles) {
-        return {
-            type: actionTypes.fetchAllArticles,
-            articles
         };
     },
     allArticlesRequest(articles) {
         return {
-            type: actionTypes.allArticlesRequest,
+            type: actionTypes.ALL_ARTICLES_REQUEST,
             articles
         };
     },
     allArticlesSuccess(articles) {
         return {
-            type: actionTypes.allArticlesSuccess,
+            type: actionTypes.ALL_ARTICLES_SUCCESS,
             articles
         };
     },
     allArticlesError(error) {
         return {
-            type: actionTypes.allArticlesError,
+            type: actionTypes.ALL_ARTICLES_ERROR,
             error
         };
     }

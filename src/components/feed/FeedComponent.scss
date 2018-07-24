@@ -1,13 +1,16 @@
 @import '~assets/scss/variables';
 
 .cardFeed {
-    display: flex;
-    align-items: center;
-    flex-flow: row wrap;
-    flex: 1;
-    padding-left: 50px;
-    padding-right: 50px;
     position: relative;
+
+    display: flex;
+
+    padding-right: 50px;
+    padding-left: 50px;
+
+    align-items: center;
+    flex: 1;
+    flex-flow: row wrap;
 
     .addButton {
         position: fixed;
@@ -40,6 +43,4 @@
             background-color: darken($primary, 10);
         }
     }
-
 }
-

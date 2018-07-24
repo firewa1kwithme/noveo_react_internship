@@ -1,7 +1,8 @@
 import {Redirect, Route} from 'react-router-dom';
 import React, {Fragment} from 'react';
-import {ConnectedNavBarContainer} from '../../../containers/NavBarContainer';
+import NavBarContainer from '../../../containers/NavBarContainer';
 import Routes from '../../../constants';
+import PropTypes from 'prop-types';
 
 export default function CommonLayoutComponent({component: Component, isAuthenticated, ...restProps}) {
     if (!isAuthenticated) {
@@ -12,7 +13,7 @@ export default function CommonLayoutComponent({component: Component, isAuthentic
         <Route {...restProps} render={props => {
             return (
                 <Fragment>
-                    <ConnectedNavBarContainer/>
+                    <NavBarContainer/>
                     <Component {...props} onLogin={restProps.onLogin} onLogout={restProps.onLogout}/>
                 </Fragment>
             );
@@ -20,4 +21,7 @@ export default function CommonLayoutComponent({component: Component, isAuthentic
     );
 }
 
-
+CommonLayoutComponent.propTypes = {
+    component: PropTypes.func,
+    isAuthenticated: PropTypes.bool
+};

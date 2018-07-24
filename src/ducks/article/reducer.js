@@ -6,13 +6,13 @@ const initialState = {
 
 function articlesReducer(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.allArticlesSuccess:
+        case actionTypes.ALL_ARTICLES_SUCCESS:
             return {
                 ...state,
                 articles: action.articles
             };
-        case actionTypes.newArticleError:
-        case actionTypes.allArticlesError:
+        case actionTypes.NEW_ARTICLE_ERROR:
+        case actionTypes.ALL_ARTICLES_ERROR:
             return action.error;
         default:
             return state;

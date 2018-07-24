@@ -1,10 +1,11 @@
-import authActionTypes from './ducks/auth/action-types';
-import articleActionTypes from './ducks/article/action-types';
+import appActionTypes from './action-types';
 import {call, all, takeLatest, put} from 'redux-saga/effects';
-import {loginSaga, registerSaga} from './ducks/auth/sagas';
-import {allArticlesSaga, newArticleSaga} from './ducks/article/sagas';
+import {loginSaga, registerSaga} from '../auth/sagas';
+import {allArticlesSaga, newArticleSaga} from '../article/sagas';
+import services from '../auth/services';
 import {push} from 'connected-react-router';
-import Routes from './constants';
+import Routes from '../../constants';
+import actions from './actions';
 
 function* loginUserSaga(action) {
     yield call(loginSaga, {
@@ -12,6 +13,7 @@ function* loginUserSaga(action) {
         password: action.password
     });
 }
+
 function* registerUserSaga(action) {
     yield call(registerSaga, {
         username: action.username,
@@ -39,11 +41,17 @@ function* createArticleSaga(action) {
     yield call(changeRouteSaga, Routes.FEED);
 }
 
+function* initAppSaga() {
+    yield call(services.fetchUser);
+    yield put(actions.initial());
+}
+
 export default function* () {
     yield all([
-        takeLatest(authActionTypes.login, loginUserSaga),
-        takeLatest(authActionTypes.register, registerUserSaga),
-        takeLatest(articleActionTypes.fetchAllArticles, showAllArticlesSaga),
-        takeLatest(articleActionTypes.newArticle, createArticleSaga)
+        takeLatest(appActionTypes.LOGIN, loginUserSaga),
+        takeLatest(appActionTypes.REGISTER, registerUserSaga),
+        takeLatest(appActionTypes.FETCH_ALL_ARTICLES, showAllArticlesSaga),
+        takeLatest(appActionTypes.NEW_ARTICLE, createArticleSaga),
+        call(initAppSaga)
     ]);
 }

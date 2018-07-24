@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import NavBarComponent from '../components/navbar/NavBarComponent.js';
 import {connect} from 'react-redux';
-import actions from '../ducks/auth/actions';
+import actions from '../ducks/app/actions';
+import PropTypes from 'prop-types';
 
 class NavBarContainer extends Component {
     constructor(props) {
@@ -13,6 +14,12 @@ class NavBarContainer extends Component {
         };
     }
 
+    static propTypes = {
+        username: PropTypes.string,
+        onLogout: PropTypes.func,
+        onLogin: PropTypes.func
+    };
+
     render() {
         return (
             <NavBarComponent username={this.props.username} onLogin={this.props.onLogin}
@@ -21,15 +28,15 @@ class NavBarContainer extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
-        onLogin: () => {
-            dispatch(actions.loginAction());
-        },
-        onLogout: () => {
-            dispatch(actions.logoutAction());
-        }
-    };
-}
-
-export const ConnectedNavBarContainer = connect(null, mapDispatchToProps)(NavBarContainer);
+export default connect(
+    null,
+    (dispatch) => {
+        return {
+            onLogin: () => {
+                dispatch(actions.loginAction());
+            },
+            onLogout: () => {
+                dispatch(actions.logoutAction());
+            }
+        };
+    })(NavBarContainer);

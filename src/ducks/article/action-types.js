@@ -1,13 +1,10 @@
 const actionTypes = {
-    newArticle: 'NEW_ARTICLE',
-    newArticleRequest: 'NEW_ARTICLE_REQUEST',
-    newArticleSuccess: 'NEW_ARTICLE_SUCCESS',
-    newArticleError: 'NEW_ARTICLE_ERROR',
-    fetchAllArticles: 'FETCH_ALL_ARTICLES',
-    allArticlesRequest: 'ALL_ARTICLES_REQUEST',
-    allArticlesSuccess: 'ALL_ARTICLES_SUCCESS',
-    allArticlesError: 'ALL_ARTICLES_ERROR',
-    singleArticle: 'SINGLE_ARTICLE'
+    NEW_ARTICLE_REQUEST: '@@article/NEW_ARTICLE_REQUEST',
+    NEW_ARTICLE_SUCCESS: '@@article/NEW_ARTICLE_SUCCESS',
+    NEW_ARTICLE_ERROR: '@@article/NEW_ARTICLE_ERROR',
+    ALL_ARTICLES_REQUEST: '@@article/ALL_ARTICLES_REQUEST',
+    ALL_ARTICLES_SUCCESS: '@@article/ALL_ARTICLES_SUCCESS',
+    ALL_ARTICLES_ERROR: '@@article/ALL_ARTICLES_ERROR'
 };
 
 export default actionTypes;

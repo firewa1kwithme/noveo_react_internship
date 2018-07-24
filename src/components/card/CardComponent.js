@@ -10,7 +10,9 @@ class FeedComponent extends Component {
         content: PropTypes.string,
         imageUrl: PropTypes.string,
         createdAt: PropTypes.string,
-        user: PropTypes.object
+        user: PropTypes.object,
+        history: PropTypes.object,
+        id: PropTypes.number
     };
 
     redirectArticleOverview = () => {
@@ -22,7 +24,7 @@ class FeedComponent extends Component {
             <div className={styles.article} onClick={this.redirectArticleOverview}>
                 <h1>{this.props.title}</h1>
                 <img src={this.props.imageUrl}/>
-                <p className={styles.cardArticleContent}>{this.props.content}</p>
+                <p>{this.props.content}</p>
                 <div className={styles.footerArticle}>
                     <div className={styles.createdAt}>{formatDate(this.props.createdAt)}</div>
                     <div className={styles.username}>@{this.props.user.username}</div>

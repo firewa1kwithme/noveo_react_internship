@@ -1,13 +1,10 @@
 const actionTypes = {
-    login: 'LOGIN',
-    loginRequest: 'LOGIN_REQUEST',
-    loginSuccess: 'LOGIN_SUCCESS',
-    loginError: 'LOGIN_ERROR',
-    logout: 'LOGOUT',
-    register: 'REGISTER',
-    registerRequest: 'REGISTER_REQUEST',
-    registerSuccess: 'REGISTER_SUCCESS',
-    registerError: 'REGISTER_ERROR'
+    LOGIN_REQUEST: '@@auth/LOGIN_REQUEST',
+    LOGIN_SUCCESS: '@@auth/LOGIN_SUCCESS',
+    LOGIN_ERROR: '@@auth/LOGIN_ERROR',
+    REGISTER_REQUEST: '@@auth/REGISTER_REQUEST',
+    REGISTER_SUCCESS: '@@auth/REGISTER_SUCCESS',
+    REGISTER_ERROR: '@@auth/REGISTER_ERROR'
 };
 
 export default actionTypes;

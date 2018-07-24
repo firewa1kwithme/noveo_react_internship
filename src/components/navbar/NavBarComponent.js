@@ -21,7 +21,9 @@ function NavBarComponent (props) {
 }
 
 NavBarComponent.propTypes = {
-    username: PropTypes.string
+    username: PropTypes.string,
+    onLogin: PropTypes.func,
+    onLogout: PropTypes.func
 };
 
 export default withRouter(NavBarComponent);

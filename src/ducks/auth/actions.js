@@ -2,58 +2,39 @@ import actionTypes from './action-types';
 
 export default {
 
-    loginAction(username, password) {
-        return {
-            type: actionTypes.login,
-            username,
-            password
-        };
-    },
     loginRequest(credentials) {
         return {
-            type: actionTypes.loginRequest,
+            type: actionTypes.LOGIN_REQUEST,
             credentials
         };
     },
     loginSuccess(user) {
         return {
-            type: actionTypes.loginSuccess,
+            type: actionTypes.LOGIN_SUCCESS,
             user
         };
     },
     loginError(error) {
         return {
-            type: actionTypes.loginError,
+            type: actionTypes.LOGIN_ERROR,
             error
-        };
-    },
-    logoutAction() {
-        return {
-            type: actionTypes.logout,
-        };
-    },
-    registerAction(username, password) {
-        return {
-            type: actionTypes.register,
-            username,
-            password
         };
     },
     registerRequest(credentials) {
         return {
-            type: actionTypes.registerRequest,
+            type: actionTypes.REGISTER_REQUEST,
             credentials
         };
     },
     registerSuccess(user) {
         return {
-            type: actionTypes.registerSuccess,
+            type: actionTypes.REGISTER_SUCCESS,
             user
         };
     },
     registerError(error) {
         return {
-            type: actionTypes.registerError,
+            type: actionTypes.REGISTER_ERROR,
             error
         };
     }

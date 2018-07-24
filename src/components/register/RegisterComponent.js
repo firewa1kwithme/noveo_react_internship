@@ -4,7 +4,6 @@ import {withRouter, Link} from 'react-router-dom';
 import styles from './RegisterComponent.scss';
 import Routes from '../../constants';
 
-//TODO: если логин занят, если пароли не совпадают
 class RegisterComponent extends Component {
     constructor(props) {
         super(props);

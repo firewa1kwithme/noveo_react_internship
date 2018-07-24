@@ -13,7 +13,8 @@ class LoginComponent extends Component {
 
     static propTypes = {
         loginFunction: PropTypes.func,
-        history: PropTypes.object.isRequired
+        history: PropTypes.object.isRequired,
+        error: PropTypes.object
     };
 
     handleChange = (event) => {
@@ -30,17 +31,17 @@ class LoginComponent extends Component {
         return (
             <Fragment>
                 <form onSubmit={this.handleSubmit} className={styles.loginForm}>
-                    <label className={styles.loginLabel}>
+                    <label>
                         Username:
                         <p><input type='text' value={this.state.username} onChange={this.handleChange} name='login'/>
                         </p>
                     </label>
-                    <label className={styles.passwordLabel}>
+                    <label>
                         Password:
                         <p><input type='password' value={this.state.password} onChange={this.handleChange}
                             name='password'/></p>
                     </label>
-                    <p><input type='submit' value='Submit' className={styles.submitButton}/></p>
+                    <p><input type='submit' value='Submit'/></p>
                     <p>{this.props.error}</p>
                 </form>
                 <Link to={Routes.REGISTER}>

@@ -1,7 +1,6 @@
 import services from '../article/services';
 import actions from './actions';
 import {call, put} from 'redux-saga/effects';
-import {push} from 'react-router-redux';
 
 export function* newArticleSaga(article) {
     try {
@@ -11,7 +10,6 @@ export function* newArticleSaga(article) {
         return response.article;
     } catch (e) {
         yield put(actions.newArticleError(e.errorCode));
-        // return e.statusMessage;
     }
 }
 
@@ -22,7 +20,6 @@ export function* allArticlesSaga(articles) {
         yield put(actions.allArticlesSuccess(response.articles));
     } catch (e) {
         yield put(actions.allArticlesError(e.errorCode));
-        // return e.statusMessage;
     }
 }
 

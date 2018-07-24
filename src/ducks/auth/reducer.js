@@ -10,8 +10,8 @@ let initialState = {
 
 function authFunction(state = initialState, action) {
     switch (action.type) {
-        case actionTypes.registerSuccess:
-        case actionTypes.loginSuccess:
+        case actionTypes.REGISTER_SUCCESS:
+        case actionTypes.LOGIN_SUCCESS:
             return {
                 ...state,
                 login: {
@@ -29,7 +29,7 @@ function authFunction(state = initialState, action) {
                     error: undefined
                 }
             };
-        case actionTypes.loginError:
+        case actionTypes.LOGIN_ERROR:
             return {
                 ...state,
                 login: {

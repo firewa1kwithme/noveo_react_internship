@@ -1,9 +1,11 @@
 .loginForm {
     display: flex;
+    flex-direction: column;
+
+    padding: 10px 10px 10px 10px;
+
     align-items: center;
     justify-content: space-around;
-    flex-direction: column;
-    padding: 10px 10px 10px 10px;
 }
 .redirectRegister {
     text-align: center;

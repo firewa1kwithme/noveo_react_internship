@@ -1,6 +1,7 @@
 import {Redirect, Route} from 'react-router-dom';
 import React from 'react';
 import Routes from '../../../constants';
+import PropTypes from 'prop-types';
 
 export default function AuthLayoutComponent({component: Component, isAuthenticated, ...restProps}) {
     if (isAuthenticated) {
@@ -14,3 +15,8 @@ export default function AuthLayoutComponent({component: Component, isAuthenticat
         }}/>
     );
 }
+
+AuthLayoutComponent.propTypes = {
+    component: PropTypes.func,
+    isAuthenticated: PropTypes.bool
+};

@@ -1,10 +1,15 @@
 import React, {Component} from 'react';
 import LoginComponent from '../components/login/LoginComponent.js';
-import actions from '../ducks/auth/actions';
+import actions from '../ducks/app/actions';
 import {connect} from 'react-redux';
 import {selectLoginInfo} from '../ducks/auth/selectors';
+import PropTypes from 'prop-types';
 
 class LoginContainer extends Component {
+    static propTypes = {
+        onLogin: PropTypes.func,
+        loginInfo: PropTypes.object
+    };
     loginFunction = ({login, password}) => {
         this.props.onLogin(login, password);
     };
@@ -16,18 +21,14 @@ class LoginContainer extends Component {
     }
 }
 
-function mapStateToProps(state) {
+export default connect((state) => {
     return {
         loginInfo: selectLoginInfo(state)
     };
-}
-
-function mapDispatchToProps(dispatch) {
+}, (dispatch) => {
     return {
         onLogin: (login, password) => {
             dispatch(actions.loginAction(login, password));
         }
     };
-}
-
-export const ConnectedLoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
+})(LoginContainer);
