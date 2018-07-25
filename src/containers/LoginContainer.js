@@ -21,10 +21,10 @@ class LoginContainer extends Component {
     }
 }
 
-export default connect((state) => {
-    return {
+export default connect(
+    (state) => ({
         loginInfo: selectLoginInfo(state)
-    };
-}, {
-    onLogin: actions.loginAction
-})(LoginContainer);
+    }), {
+        onLogin: actions.loginAction
+    }
+)(LoginContainer);

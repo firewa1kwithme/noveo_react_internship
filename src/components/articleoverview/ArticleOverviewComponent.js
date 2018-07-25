@@ -5,15 +5,10 @@ import {formatDate} from '../../helpers/dateFormat';
 
 export default class ArticleOverviewComponent extends Component {
     static propTypes = {
-        title: PropTypes.string,
-        content: PropTypes.string,
-        username: PropTypes.string,
-        createdAt: PropTypes.string,
-        imageUrl: PropTypes.string,
-        user: PropTypes.object
+        article: PropTypes.object.isRequired,
+        user: PropTypes.object.isRequired
     };
     render() {
-        console.log('   component props', this.props);
         return (
             <div className={styles.article}>
                 <h1>{this.props.article.title}</h1>

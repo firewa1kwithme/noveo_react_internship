@@ -22,10 +22,9 @@ class FeedContainer extends Component {
     }
 }
 
-export default connect((state) => {
-    return {
+export default connect(
+    (state) => ({
         articles: selectArticles(state)
-    };
-}, {
-    fetchAllArticles: actions.fetchAllArticles
-})(FeedContainer);
+    }), {
+        fetchAllArticles: actions.fetchAllArticles
+    })(FeedContainer);

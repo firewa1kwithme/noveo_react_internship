@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './NavBarComponent.scss';
 import {withRouter, Link} from 'react-router-dom';

@@ -8,10 +8,11 @@ import {withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class AppContainer extends Component {
-    static propTypes ={
+    static propTypes = {
         login: PropTypes.object.isRequired,
         isInit: PropTypes.bool.isRequired
     };
+
     render() {
         return (
             <AppComponent isAuthenticated={this.props.login.isAuthenticated} error={this.props.login.error}
@@ -20,9 +21,8 @@ class AppContainer extends Component {
     }
 }
 
-export default compose(withRouter, connect((state) => {
-    return {
+export default compose(withRouter, connect(
+    (state) => ({
         login: selectLoginInfo(state),
         isInit: selectIsInit(state)
-    };
-}))(AppContainer);
+    })))(AppContainer);

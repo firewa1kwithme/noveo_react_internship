@@ -24,15 +24,10 @@ class RegisterContainer extends Component {
     }
 }
 
-export default connect((state) => {
-    return {
+export default connect(
+    (state) => ({
         username: selectUser(state)
-    };
-},
-(dispatch) => {
-    return {
-        onRegister: (login, password) => {
-            dispatch(actions.registerAction(login, password));
-        }
-    };
-})(RegisterContainer);
+    }),
+    {
+        onRegister: actions.registerAction
+    })(RegisterContainer);

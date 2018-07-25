@@ -8,9 +8,9 @@ import {selectUser} from '../ducks/auth/selectors';
 class NavBarContainer extends Component {
 
     static propTypes = {
-        user: PropTypes.object,
-        onLogout: PropTypes.func,
-        onLogin: PropTypes.func
+        user: PropTypes.object.isRequired,
+        onLogout: PropTypes.func.isRequired,
+        onLogin: PropTypes.func.isRequired
     };
 
     render() {
@@ -25,13 +25,9 @@ export default connect(
     (state) => ({
         user: selectUser(state)
     }),
-    (dispatch) => {
-        return {
-            onLogin: () => {
-                dispatch(actions.loginAction());
-            },
-            onLogout: () => {
-                dispatch(actions.logoutAction());
-            }
-        };
+    {
+        onLogin: actions.loginAction,
+        onLogout:
+        actions.logoutAction
+
     })(NavBarContainer);

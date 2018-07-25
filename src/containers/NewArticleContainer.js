@@ -6,8 +6,9 @@ import PropTypes from 'prop-types';
 
 class NewArticleContainer extends Component {
     static propTypes = {
-        fetchAllArticles: PropTypes.func
+        fetchAllArticles: PropTypes.func.isRequired
     };
+
     render() {
         return (
             <NewArticleComponent newArticleFunction={this.props.fetchAllArticles}/>
@@ -17,9 +18,6 @@ class NewArticleContainer extends Component {
 
 export default connect(
     null,
-    (dispatch) => {
-        return {
-            fetchAllArticles: (title, content, imageUrl) =>
-                (dispatch(actions.newArticleAction(title, content, imageUrl)))
-        };
+    {
+        fetchAllArticles: actions.newArticleAction
     })(NewArticleContainer);

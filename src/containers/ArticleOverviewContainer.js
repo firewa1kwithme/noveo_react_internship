@@ -10,29 +10,29 @@ class ArticleOverviewContainer extends Component {
 
     static propTypes = {
         match: PropTypes.object.isRequired,
-        fetchArticle: PropTypes.func,
-        article: PropTypes.object,
-        user: PropTypes.object
+        fetchArticle: PropTypes.func.isRequired,
+        article: PropTypes.object.isRequired,
+        user: PropTypes.object.isRequired
     };
+
     componentDidMount() {
         this.props.fetchArticle(this.props.match.params.id);
     }
 
     render() {
-        console.log('   props', this.props);
         return (
-            <ArticleOverviewComponent article={this.props.article} user={this.props.user} />
+            <ArticleOverviewComponent article={this.props.article} user={this.props.user}/>
         );
     }
 }
 
-export default connect((state) => {
-    return {
+export default connect(
+    (state) => ({
         article: selectArticle(state),
         user: selectUser(state)
-    };
-}, {
-    fetchArticle: actions.fetchArticle
-})(ArticleOverviewContainer);
+    }),
+    {
+        fetchArticle: actions.fetchArticle
+    })(ArticleOverviewContainer);
 
 
