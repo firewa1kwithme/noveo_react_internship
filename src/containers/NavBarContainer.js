@@ -15,8 +15,11 @@ class NavBarContainer extends Component {
 
     render() {
         return (
-            <NavBarComponent user={this.props.user} onLogin={this.props.onLogin}
-                onLogout={this.props.onLogout}/>
+            <NavBarComponent
+                user={this.props.user}
+                onLogin={this.props.onLogin}
+                onLogout={this.props.onLogout}
+            />
         );
     }
 }
@@ -27,7 +30,5 @@ export default connect(
     }),
     {
         onLogin: actions.loginAction,
-        onLogout:
-        actions.logoutAction
-
+        onLogout: actions.logoutAction
     })(NavBarContainer);
