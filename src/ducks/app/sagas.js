@@ -2,7 +2,6 @@ import appActionTypes from './action-types';
 import {call, all, takeLatest, put} from 'redux-saga/effects';
 import {loginSaga, registerSaga, logoutSaga, fetchUserSaga} from '../auth/sagas';
 import {allArticlesSaga, newArticleSaga} from '../article/sagas';
-import services from '../auth/services';
 import {push} from 'connected-react-router';
 import Routes from '../../constants';
 import actions from './actions';

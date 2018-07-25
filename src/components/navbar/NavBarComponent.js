@@ -12,7 +12,7 @@ function NavBarComponent (props) {
             <Link to={Routes.FEED}><h1>First react-redux blog</h1></Link>
             {condition
                 ? <Fragment>
-                    <p>{props.user.username}</p>
+                    <p>@{props.user.username}</p>
                     <button onClick={props.onLogout}> Выйти </button>
                 </Fragment>
                 : <button onClick={props.onLogin} > Войти </button>}
