@@ -36,6 +36,23 @@ export default {
             type: actionTypes.ALL_ARTICLES_ERROR,
             error
         };
+    },
+    singleArticleRequest() {
+        return {
+            type: actionTypes.FETCH_SINGLE_ARTICLE_REQUEST
+        };
+    },
+    singleArticleSuccess(article) {
+        return {
+            type: actionTypes.FETCH_SINGLE_ARTICLE_SUCCESS,
+            article
+        };
+    },
+    singleArticleError(error) {
+        return {
+            type: actionTypes.FETCH_SINGLE_ARTICLE_ERROR,
+            error
+        };
     }
 };
 

@@ -6,13 +6,13 @@ import {formatDate} from '../../helpers/dateFormat';
 
 class FeedComponent extends Component {
     static propTypes = {
-        title: PropTypes.string,
+        title: PropTypes.string.isRequired,
         content: PropTypes.string,
         imageUrl: PropTypes.string,
-        createdAt: PropTypes.string,
-        user: PropTypes.object,
-        history: PropTypes.object,
-        id: PropTypes.number
+        createdAt: PropTypes.string.isRequired,
+        user: PropTypes.object.isRequired,
+        history: PropTypes.object.isRequired,
+        id: PropTypes.number.isRequired
     };
 
     redirectArticleOverview = () => {

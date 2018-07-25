@@ -12,15 +12,15 @@ export default class ArticleOverviewComponent extends Component {
         imageUrl: PropTypes.string,
         user: PropTypes.object
     };
-
     render() {
+        console.log('   component props', this.props);
         return (
             <div className={styles.article}>
-                <h1>{this.props.title}</h1>
-                <p>{this.props.content}</p>
-                <img src={this.props.imageUrl}/>
+                <h1>{this.props.article.title}</h1>
+                <p>{this.props.article.content}</p>
+                <img src={this.props.article.imageUrl}/>
                 <div className={styles.footerArticle}>
-                    <div className={styles.createdAt}>{formatDate(this.props.createdAt)}</div>
+                    <div className={styles.createdAt}>{formatDate(this.props.article.createdAt)}</div>
                     <div className={styles.username}>@{this.props.user.username}</div>
                 </div>
             </div>

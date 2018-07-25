@@ -3,7 +3,7 @@ const Routes = {
     FEED: '/feed',
     LOGIN: '/login',
     REGISTER: '/register',
-    ARTICLE: '/article/:',
+    ARTICLE: '/article/:id',
     NEW: '/new'
 };
 

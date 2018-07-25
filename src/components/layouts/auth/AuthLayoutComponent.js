@@ -17,6 +17,6 @@ export default function AuthLayoutComponent({component: Component, isAuthenticat
 }
 
 AuthLayoutComponent.propTypes = {
-    component: PropTypes.func,
-    isAuthenticated: PropTypes.bool
+    component: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired
 };

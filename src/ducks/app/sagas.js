@@ -1,7 +1,7 @@
 import appActionTypes from './action-types';
 import {call, all, takeLatest, put} from 'redux-saga/effects';
 import {loginSaga, registerSaga, logoutSaga, fetchUserSaga} from '../auth/sagas';
-import {allArticlesSaga, newArticleSaga} from '../article/sagas';
+import {allArticlesSaga, newArticleSaga, singleArticleSaga} from '../article/sagas';
 import {push} from 'connected-react-router';
 import Routes from '../../constants';
 import actions from './actions';
@@ -21,9 +21,7 @@ function* registerUserSaga(action) {
 }
 
 function* showAllArticlesSaga(action) {
-    yield call(allArticlesSaga, {
-        articles: action.articles
-    });
+    yield call(allArticlesSaga, action);
 }
 
 function* changeRouteSaga(location) {
@@ -49,6 +47,9 @@ function* logoutUserSaga() {
     yield call(logoutSaga);
 }
 
+function* fetchArticleSaga(action) {
+    yield call(singleArticleSaga, action.id);
+}
 
 export default function* () {
     yield all([
@@ -57,6 +58,7 @@ export default function* () {
         takeLatest(appActionTypes.FETCH_ALL_ARTICLES, showAllArticlesSaga),
         takeLatest(appActionTypes.NEW_ARTICLE, createArticleSaga),
         takeLatest(appActionTypes.LOGOUT, logoutUserSaga),
+        takeLatest(appActionTypes.FETCH_ARTICLE, fetchArticleSaga),
         call(initAppSaga)
     ]);
 }

@@ -13,6 +13,7 @@ const sagaMiddleware = createSagaMiddleware();
 const CombinedReducer = combineReducers({
     auth: authReducer,
     articles: articlesReducer,
+    // currentArticle: articlesReducer,
     app: appReducer
 });
 const store = createStore(

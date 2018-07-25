@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 
 class FeedContainer extends Component {
     static propTypes = {
-        fetchAllArticles: PropTypes.func,
-        articles: PropTypes.array
+        fetchAllArticles: PropTypes.func.isRequired,
+        articles: PropTypes.array.isRequired
     };
 
     componentDidMount() {
@@ -26,9 +26,6 @@ export default connect((state) => {
     return {
         articles: selectArticles(state)
     };
-},
-(dispatch) => {
-    return {
-        fetchAllArticles: () => (dispatch(actions.fetchAllArticles()))
-    };
+}, {
+    fetchAllArticles: actions.fetchAllArticles
 })(FeedContainer);

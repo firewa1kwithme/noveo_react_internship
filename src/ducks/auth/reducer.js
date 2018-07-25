@@ -24,11 +24,7 @@ function authFunction(state = initialState, action) {
         case actionTypes.LOGOUT:
             return {
                 ...state,
-                login: {
-                    user: {},
-                    isAuthenticated: false,
-                    error: null
-                }
+                ...initialState
             };
         case actionTypes.LOGIN_ERROR:
         case actionTypes.FETCH_USER_ERROR:
@@ -36,7 +32,7 @@ function authFunction(state = initialState, action) {
             return {
                 ...state,
                 login: {
-                    user: undefined,
+                    user: null,
                     isAuthenticated: false,
                     error: action.error
                 }

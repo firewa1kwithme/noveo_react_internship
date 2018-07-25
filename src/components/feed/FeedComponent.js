@@ -8,7 +8,7 @@ import PlusIcon from 'components/icons/PlusIcon';
 
 export default class FeedComponent extends Component {
     static propTypes = {
-        articles: PropTypes.array
+        articles: PropTypes.array.isRequired
     };
     render() {
         return (

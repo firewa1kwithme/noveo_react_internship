@@ -25,7 +25,7 @@ export default function AppComponent(props) {
                 isAuthenticated={props.isAuthenticated}/>
             <AuthLayoutComponent path={Routes.REGISTER} component={RegisterContainer}
                 isAuthenticated={props.isAuthenticated}/>
-            <CommonLayoutComponent path='/article/:articleId' component={ArticleOverviewContainer}
+            <CommonLayoutComponent path={Routes.ARTICLE} component={ArticleOverviewContainer}
                 isAuthenticated={props.isAuthenticated}/>
             <CommonLayoutComponent path={Routes.NEW} component={NewArticleContainer}
                 isAuthenticated={props.isAuthenticated}/>
@@ -35,6 +35,6 @@ export default function AppComponent(props) {
 }
 
 AppComponent.propTypes = {
-    isInit: PropTypes.bool,
-    isAuthenticated: PropTypes.bool
+    isInit: PropTypes.bool.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired
 };

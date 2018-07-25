@@ -22,6 +22,6 @@ export default function CommonLayoutComponent({component: Component, isAuthentic
 }
 
 CommonLayoutComponent.propTypes = {
-    component: PropTypes.func,
-    isAuthenticated: PropTypes.bool
+    component: PropTypes.func.isRequired,
+    isAuthenticated: PropTypes.bool.isRequired
 };

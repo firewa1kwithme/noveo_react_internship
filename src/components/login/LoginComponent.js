@@ -12,7 +12,7 @@ class LoginComponent extends Component {
     }
 
     static propTypes = {
-        loginFunction: PropTypes.func,
+        loginFunction: PropTypes.func.isRequired,
         history: PropTypes.object.isRequired,
         error: PropTypes.object
     };

@@ -39,6 +39,12 @@ export default {
         return {
             type: actionTypes.INIT
         };
+    },
+    fetchArticle(id) {
+        return {
+            type: actionTypes.FETCH_ARTICLE,
+            id
+        };
     }
 };
 

@@ -7,8 +7,8 @@ import PropTypes from 'prop-types';
 
 class LoginContainer extends Component {
     static propTypes = {
-        onLogin: PropTypes.func,
-        loginInfo: PropTypes.object
+        onLogin: PropTypes.func.isRequired,
+        loginInfo: PropTypes.object.isRequired
     };
     loginFunction = ({login, password}) => {
         this.props.onLogin(login, password);
@@ -25,10 +25,6 @@ export default connect((state) => {
     return {
         loginInfo: selectLoginInfo(state)
     };
-}, (dispatch) => {
-    return {
-        onLogin: (login, password) => {
-            dispatch(actions.loginAction(login, password));
-        }
-    };
+}, {
+    onLogin: actions.loginAction
 })(LoginContainer);

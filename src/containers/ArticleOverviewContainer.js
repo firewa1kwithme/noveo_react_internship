@@ -1,34 +1,38 @@
 import React, {Component} from 'react';
 import ArticleOverviewComponent from '../components/articleoverview/ArticleOverviewComponent';
 import {connect} from 'react-redux';
-import {selectArticles} from '../ducks/article/selectors';
+import {selectArticle} from '../ducks/article/selectors';
+import {selectUser} from '../ducks/auth/selectors';
 import PropTypes from 'prop-types';
+import actions from '../ducks/app/actions';
 
 class ArticleOverviewContainer extends Component {
 
     static propTypes = {
-        articles: PropTypes.array,
-        match: PropTypes.object
+        match: PropTypes.object.isRequired,
+        fetchArticle: PropTypes.func,
+        article: PropTypes.object,
+        user: PropTypes.object
     };
+    componentDidMount() {
+        this.props.fetchArticle(this.props.match.params.id);
+    }
 
     render() {
-        let currentArticle = {};
-        this.props.articles.forEach((article) => {
-            if (article.id === parseInt(this.props.match.params.articleId, 10)) {
-                currentArticle = article;
-            }
-        });
-
+        console.log('   props', this.props);
         return (
-            <ArticleOverviewComponent {...currentArticle}/>
+            <ArticleOverviewComponent article={this.props.article} user={this.props.user} />
         );
     }
 }
 
 export default connect((state) => {
     return {
-        articles: selectArticles(state)
+        article: selectArticle(state),
+        user: selectUser(state)
     };
+}, {
+    fetchArticle: actions.fetchArticle
 })(ArticleOverviewContainer);
 
 

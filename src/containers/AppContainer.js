@@ -9,8 +9,8 @@ import PropTypes from 'prop-types';
 
 class AppContainer extends Component {
     static propTypes ={
-        login: PropTypes.object,
-        isInit: PropTypes.bool
+        login: PropTypes.object.isRequired,
+        isInit: PropTypes.bool.isRequired
     };
     render() {
         return (
